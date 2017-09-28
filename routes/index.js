@@ -1,8 +1,8 @@
-const express = require('express');
-const router = express.Router();
-const home = require('./home');
+const express = require('express')
+const router = express.Router()
+const home = require('./home')
 
 /* GET home page. */
-router.get('/', home);
+router.get('/', home)
 
-module.exports = router;
+module.exports = router
