@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "npm run css-build && node ./bin/www",
-    "devStart": "nodemon -e css,js,hbs,json -x \"npm run css-build && node bin/www\"",
+    "start": "npm run css-build && node ./src/bin/www",
+    "devStart": "nodemon -e css,js,hbs,json -x \"npm run css-build && node src/bin/www\"",
     "css-watch": "postcss ./css/index.css --output ./public/style.min.css --watch --config ./postcss.config.js",
     "css-build": "postcss ./css/index.css --output ./public/style.min.css --config ./postcss.config.js",
     "test": "tape tests/*test.js | tap-spec",
