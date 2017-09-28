@@ -1,0 +1,48 @@
+{
+  "name": "neptune",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "npm run css-build && node ./bin/www",
+    "devStart": "nodemon -e css,js,hbs,json -x \"npm run css-build && node bin/www\"",
+    "css-watch": "postcss ./css/index.css --output ./public/style.min.css --watch --config ./postcss.config.js",
+    "css-build": "postcss ./css/index.css --output ./public/style.min.css --config ./postcss.config.js",
+    "test": "tape tests/*.test.js | tap-spec",
+    "nyc": "nyc npm test && nyc report --reporter=html && nyc report --reporter=text-lcov > coverage.lcov && codecov"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "public/style.min.css"
+    ]
+  },
+  "dependencies": {
+    "body-parser": "~1.17.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.3",
+    "express": "~4.15.2",
+    "express-handlebars": "^3.0.0",
+    "hbs": "~4.0.1",
+    "morgan": "~1.8.1",
+    "serve-favicon": "~2.4.2",
+    "tachyons-custom": "^4.6.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.1.4",
+    "codecov": "^2.3.0",
+    "eslint": "^4.7.2",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "istanbul": "^0.4.5",
+    "nodemon": "^1.12.1",
+    "nyc": "^11.2.1",
+    "postcss-clean": "^1.1.0",
+    "postcss-cli": "^4.1.1",
+    "postcss-custom-media": "^6.0.0",
+    "postcss-custom-properties": "^6.1.0",
+    "postcss-import": "^11.0.0",
+    "tap-spec": "^4.1.1"
+  }
+}

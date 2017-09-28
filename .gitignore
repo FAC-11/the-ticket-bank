@@ -57,3 +57,12 @@ typings/
 # dotenv environment variables file
 .env
 
+# Ignore annoying DS_Store
+.DS_Store
+._.DS_Store
+*.DS_Store
+**/.DS_Store
+**/._.DS_Store
+
+# Ignore style.min.css
+public/style.min.css
