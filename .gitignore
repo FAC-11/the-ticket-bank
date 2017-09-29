@@ -55,14 +55,55 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
+*.env
 
-# Ignore annoying DS_Store
+
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+*.sqlite
+
+# OS generated files #
+######################
 .DS_Store
-._.DS_Store
-*.DS_Store
-**/.DS_Store
-**/._.DS_Store
+.DS_Store?
+-._.DS_Store
+-*.DS_Store
+-**/.DS_Store
+-**/._.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+node_modules/
+.nyc_output/
+coverage/
+./package-lock.json
+./config.env
 
 # Ignore style.min.css
 public/style.min.css
