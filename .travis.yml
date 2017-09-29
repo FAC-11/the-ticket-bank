@@ -1,8 +1,11 @@
 language: node_js
 node_js:
-  - "node"
+- node
 notifications:
   email: false
 before_install:
-  - npm install -g codecov
+- npm install -g codecov
 after_success: npm run nyc
+env:
+  global:
+    secure: ljh3fYLHk9BRNO6mUrLUJubj4ai3xDWo68JFaLtHjHBSrp2Zy0/O0iJDpwS1ohaTeLQ+WVgqTXXHi2We+0zS0o4Ut09/dQ87/BOg3MllGkOKLlQVO2aw1QEy/ttnq49t1tERexQxtQuLOSinkNbFk1IzFJ62Yj7oYzHNVrF6luGNWhXvYYegQuD63N8cD/3w12TSR6QF+tHbBIAG3q5tXTg4mx2fMHh6HJwpqJE1B6oziw7hGf0UHfdsj4NMy+1XQneeQjZUUXOjOSYxSuJzmiiGY+uOUNjCYhmfl6Mp7Z3qMhnKYTdr7I5LFoJquJpbjCnWN8N2P4kmnMHubfQYffgmq1y3vgx1Po4q5401td+PcXS8gzd91ggtOmAC9rHoXNT+ZweCZSPVV+VnuXjeZrevtAIVvu6TyzkM1BH0MwPBxxKWUbqa611qlCZ3zazW+hpA0FPpLiA4J1xIk0uH10Cgr3nP4dKX70lQUM2jJZeDwo9WuZM0mOBFl/zp2ran65o/ZV9FPBJfrPmUzosbM0I4HPFczlwdzZobI2lq0b4kEQi8on7qY7k/XdeCIzmjceNCGLYbbSr8kTzkNE6KWvFlrQ5h0J26xfMwvFxH5i7C3orI3XiugIOEZ1ntrPEBsccp6RadxldfGxE2bMhNfgsD9x/e8G/vlGyccMf04r8=
