@@ -5,13 +5,19 @@ require('env2')('./config.env');
 const postmark = require('postmark')
 
 // create new client instance:
-const client = new postmark.Client(process.env.POSTMARK_KEY)
+const emailClient = new postmark.Client(process.env.POSTMARK_KEY)
 
-module.exports = client
+// for testing
+const testEmailClient = new postmark.Client(process.env.POSTMARK_TEST_KEY)
+
+module.exports = {
+  emailClient: emailClient,
+  testEmailClient: testEmailClient
+}
 
 // to send an email
-// const client = require('path.to/models/email.js')
-// client.sendEmail({
+// const { emailClient } = require('path.to/models/email.js')
+// emailClient.sendEmail({
 //   "From": "steve@ticketsforgood.co.uk",
 //   "To": "test@blackhole.postmarkapp.com",
 //   "Subject": "test",
