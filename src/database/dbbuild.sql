@@ -4,13 +4,13 @@ DROP TABLE IF EXISTS users, events, participants cascade;
 
 CREATE TABLE IF NOT EXISTS users (
   id            SERIAL        PRIMARY KEY,
-  class         VARCHAR(15)   NOT NULL UNIQUE,
+  class         VARCHAR(15)   NOT NULL,
   verified      VARCHAR(10)   DEFAULT FALSE,
   charity_name  VARCHAR(20)   DEFAULT NULL,
   name          VARCHAR(30)   DEFAULT NULL,
   surname       VARCHAR(30)   DEFAULT NULL,
   email         VARCHAR(30)   DEFAULT NULL UNIQUE,
-  contact_phone INTEGER       NOT NULL,
+  contact_phone INTEGER       DEFAULT NULL,
   password      VARCHAR(70)   NOT NULL
 );
 
@@ -21,8 +21,8 @@ CREATE TABLE IF NOT EXISTS events (
   long_desc     VARCHAR(2000) DEFAULT NULL,     --long dscription of event
   venue         VARCHAR(100)  DEFAULT NULL,
   location      VARCHAR(100)  DEFAULT NULL,
-  event_date    DATE          NOT NULL,
-  start_time    TIME          NOT NULL,
+  event_date    DATE          DEFAULT NULL,
+  start_time    TIME          DEFAULT NULL,
   end_date      DATE          DEFAULT NULL,
   end_time      TIME          DEFAULT NULL,
   min_age       INTEGER       DEFAULT NULL,     --minimum age ot participate into event
@@ -38,8 +38,8 @@ CREATE TABLE IF NOT EXISTS events (
 CREATE TABLE IF NOT EXISTS participants (
   id            SERIAL        PRIMARY KEY,
   event_id      INTEGER       REFERENCES events(id) ON UPDATE cascade DEFAULT 1,
-  org_id        INTEGER       REFERENCES users(id) ON UPDATE cascade DEFAULT 2,
-  charity_id    INTEGER       REFERENCES users(id) ON UPDATE cascade DEFAULT 2,
+  org_id        INTEGER       DEFAULT NULL,
+  charity_id    INTEGER       DEFAULT NULL,
   name          VARCHAR(30)   DEFAULT NULL,
   surname       VARCHAR(30)   DEFAULT NULL,
   age           INTEGER       DEFAULT NULL,
@@ -59,6 +59,6 @@ INSERT INTO users (class, verified, charity_name, name, surname, email, contact_
 ('organiser', true, 'T4G', 'mary', 'doe', 'mary@t4g.co.uk', 0794464789, '$2a$10$UcORsLgChmFC8UPlqoOJluX8IU0yccwL.zfP2hrUPWwWCDiV8y9LW');
 
 INSERT INTO events (title, short_desc, long_desc, venue, location, event_date, start_time, end_date, end_time, min_age, tkts_available, info, max_allocation, org_id) VALUES
-('Fac Welcome', 'Weclome event for facsters', '', 'Palmers Road', , , , , , 18, 5, 'Everyone welcome', 2, 4);
+('Fac Welcome', 'Welcome event for facsters', 'Welcome event for all Fac memebers', 'Fac HQ','Palmers Road', NULL, NULL, NULL, NULL, 18, 5, 'Everyone welcome', 2, 4);
 
 COMMIT;
