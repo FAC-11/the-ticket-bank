@@ -1,4 +1,7 @@
 /* you can add your own styles in this file */
+* {
+  box-sizing: border-box;
+}
 
 body {
   /* the var(--my-variable) syntax is a css variable
@@ -31,4 +34,15 @@ button {
 .change .bar3 {
   -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
   transform: rotate(45deg) translate(-8px, -8px) ;
+}
+
+/* MAIN */
+
+main {
+  margin-top: 69.6px;
+}
+
+/* EVENT CARD */
+.event {
+  background-color: #EEE8E8;
 }

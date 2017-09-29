@@ -1,3 +1,16 @@
 {{>navbar}}
 
-<p>Welcome to {{title}}</p>
+<main class="dib w-100">
+
+{{#each this}}
+<section class="ba br3 pa2 ma2 event">
+<ul class="list">
+    <li><h1 class="hot-pink">{{title}}</h1></li>
+    <li>Location: {{location}}</li>
+    <li>Date: {{startDate}}</li>
+    <li>Available Tickets: {{ticketsAvailable}}</li>
+</ul>
+</section>
+{{/each}}
+
+</main>
