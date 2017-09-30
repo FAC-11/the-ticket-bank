@@ -11,7 +11,7 @@ const postmark = require('postmark')
 const testEmailClient = new postmark.Client(process.env.POSTMARK_TEST_KEY)
 
 module.exports = {
-  emailClient: emailClient,
+  // emailClient: emailClient,
   testEmailClient: testEmailClient
 }
 
