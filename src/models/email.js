@@ -5,7 +5,7 @@
 const postmark = require('postmark')
 
 // create new client instance:
-const emailClient = new postmark.Client(process.env.POSTMARK_KEY)
+// const emailClient = new postmark.Client(process.env.POSTMARK_KEY)
 
 // for testing
 const testEmailClient = new postmark.Client(process.env.POSTMARK_TEST_KEY)
