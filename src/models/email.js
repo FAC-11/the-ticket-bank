@@ -1,5 +1,5 @@
 // so we can use POSTMARK_KEY
-require('env2')('./config.env');
+// require('env2')('./config.env');
 
 // require postmark
 const postmark = require('postmark')
