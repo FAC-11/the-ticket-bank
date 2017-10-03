@@ -3,6 +3,7 @@ const validate = (req) => {
   return new Promise((resolve, reject) => {
 
     if (req.body.charityName.length < 2) reject('Name is too short')
+    if (req.body.charityName.length === 0) reject('Name can\'t be empty')
     else if (req.body.charityNumber.match(/[A-Z]/ig)) reject('Charity number cannot contain letters')
     else if (req.body.contactName.match(/[0-9]/i)) reject('Name cannot contain numbers')
     else if (req.body.contactSurname.match(/[0-9]/i)) reject('Surname cannot contain numbers')

@@ -4,9 +4,12 @@ DROP TABLE IF EXISTS users, events, participants cascade;
 
 CREATE TABLE IF NOT EXISTS users (
   id            SERIAL        PRIMARY KEY,
-  class         VARCHAR(15)   NOT NULL,         -- either charity or admin
+  class         VARCHAR(15)   DEFAULT NULL,
   verified      VARCHAR(10)   DEFAULT FALSE,
   charity_name  VARCHAR(20)   DEFAULT NULL,
+  charity_number VARCHAR(15)  DEFAULT NULL,
+  area_of_work  VARCHAR(40)   DEFAULT NULL,
+  charity_address VARCHAR(40) DEFAULT NULL,
   name          VARCHAR(30)   DEFAULT NULL,
   surname       VARCHAR(30)   DEFAULT NULL,
   email         VARCHAR(30)   DEFAULT NULL UNIQUE,
