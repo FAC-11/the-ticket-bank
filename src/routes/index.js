@@ -8,4 +8,5 @@ const newuser = require('./newUser')
 router.get('/', home)
 router.get('/signup', signup)
 router.post('/newuser', newuser)
+// router.post('/verifyuser', verifyuser)
 module.exports = router
