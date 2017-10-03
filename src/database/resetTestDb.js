@@ -1,5 +1,5 @@
 const queryDb = require('./queryDb')
-const sql = require('./index');
+const sql = require('./index')
 
 module.exports = () => {
   return queryDb(sql.dbSchema)
