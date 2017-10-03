@@ -1,1 +1,1 @@
-SELECT title,short_desc,venue,location,event_date FROM events;
+SELECT title,short_desc,venue,location, to_char(event_date, 'DD-MM-YYYY'),tkts_available FROM events;

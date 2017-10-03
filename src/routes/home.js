@@ -5,4 +5,5 @@ module.exports = (req, res) => {
     .then(events => {
       res.render('home', { events })
     })
+    .catch(console.error)
 }
