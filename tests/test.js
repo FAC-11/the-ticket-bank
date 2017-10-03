@@ -1,11 +1,6 @@
 const tape = require('tape')
 const { testEmailClient} = require('../src/models/email.js')
 
-tape('Initialise tape', t => {
-  t.equal(1, 1, '1 = 1')
-  t.end()
-})
-
 tape('Postmark', (t) => {
   testEmailClient.sendEmail({
     "From": "steve@ticketsforgood.co.uk",
