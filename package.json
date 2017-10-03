@@ -8,7 +8,8 @@
     "css-watch": "postcss ./css/index.css --output ./public/style.min.css --watch --config ./postcss.config.js",
     "css-build": "postcss ./css/index.css --output ./public/style.min.css --config ./postcss.config.js",
     "test": "tape tests/*test.js | tap-spec",
-    "nyc": "nyc npm test && nyc report --reporter=html && nyc report --reporter=text-lcov > coverage.lcov && codecov"
+    "nyc": "nyc npm test && nyc report --reporter=html && nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "build": "node src/database/dbBuild.js"
   },
   "nodemonConfig": {
     "ignore": [
@@ -24,6 +25,7 @@
     "express-handlebars": "^3.0.0",
     "hbs": "~4.0.1",
     "morgan": "~1.8.1",
+    "path": "^0.12.7",
     "pg-promise": "^6.10.1",
     "serve-favicon": "~2.4.2",
     "tachyons-custom": "^4.6.0"
