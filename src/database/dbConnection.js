@@ -9,7 +9,7 @@ if (!process.env.DATABASE_URL) {
 const params = url.parse(process.env.DATABASE_URL)
 const [username, password] = params.auth.split(':')
 
-const herokuDB = {
+const database = {
   host: params.hostname,
   port: params.port,
   database: params.pathname.split('/')[1],
@@ -19,5 +19,5 @@ const herokuDB = {
   ssl: params.hostname !== 'localhost'
 }
 
-const db = pgp(herokuDB)
+const db = pgp(database)
 module.exports = db

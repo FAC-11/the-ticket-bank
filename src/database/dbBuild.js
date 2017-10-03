@@ -1,12 +1,5 @@
-const { QueryFile } = require('pg-promise')
-const path = require('path')
-const db = require('./dbConnection')
+const queryDb = require('./queryDb')
 
-const sql = file => QueryFile(path.join(__dirname, file), { minify: true })
-
-const build = sql('./dbbuild.sql')
-
-db
-  .query(build)
-  .then(res => console.log('res', res))
-  .catch(e => console.error('error', e))
+queryDb('./sql-queries/dbSchema.sql')
+  .then(console.log)
+  .catch(console.log)
