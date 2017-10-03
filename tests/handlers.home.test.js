@@ -2,7 +2,6 @@ const tape = require('tape');
 const handleHome = require('../src/handlers/home.js');
 const queryDb = require('../src/database/queryDb.js');
 const sql = require('../src/database/index.js');
+const resetTestDb = require('../src/database/resetTestDb');
 
-queryDb(sql.testData)
-  .then(res => { console.log("inserted test data", res )})
-  .catch(err => { console.log("error inserting test data", err) })
+resetTestDb().then(res => { console.log("sjf") })
