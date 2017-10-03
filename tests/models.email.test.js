@@ -7,12 +7,12 @@ tape('Postmark', (t) => {
     "To": "test@someone.com",
     "Subject": "test",
     "TextBody": "test"
-  }).
-    then((res) => {
+  })
+    .then((res) => {
       t.equal(res.ErrorCode, 0, 'should send outbound emails')
-    }).
-    catch((err) => {
+    })
+    .catch((err) => {
       t.fail(err.message)
     })
-    t.end()
+  t.end()
 })

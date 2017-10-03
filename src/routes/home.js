@@ -1,5 +1,8 @@
-const { getEvent } = require('../handlers/home')
+const { getEvents } = require('../handlers/home')
 
 module.exports = (req, res) => {
-  res.render('home', getEvent())
+  getEvents()
+    .then(events => {
+      res.render('home', events)
+    })
 }

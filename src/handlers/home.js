@@ -1,26 +1,10 @@
-const getEvent = () => {
-  return [
-    {
-      title: 'Sheffield Soup',
-      location: 'Sheffield Arena',
-      startDate: '20 December 2017',
-      ticketsAvailable: '4'
-    },
-    {
-      title: 'Dog',
-      location: 'Main Street',
-      startDate: '15 December 2017',
-      ticketsAvailable: '10'
-    },
-    {
-      title: 'Sheffield Soup',
-      location: 'Sheffield Arena',
-      startDate: '20 December 2017',
-      ticketsAvailable: '4'
-    }
-  ]
+const queryDb = require('../database/queryDb');
+const sql = require('../database/index');
+
+const getEvents = () => {
+  return queryDb(sql.getEvents)
 }
 
 module.exports = {
-  getEvent
+  getEvents
 }
