@@ -2,16 +2,20 @@
 
 <main class="dib w-100">
 
-{{#each this.events }}
-<section class="ba br3 pa2 ma2 event">
-<ul class="list">
-    <li><h1 class="hot-pink">{{title}}</h1></li>
-    <li>{{short_desc}}</li>
-    <li>Location: {{venue}}, {{location}}</li>
-    <li>Date: {{to_char}}</li>
-    <li>Available Tickets: {{tkts_available}}</li>
-</ul>
-</section>
-{{/each}}
+  {{#each this.events }}
+  <section class="ba br3 pa2 ma2 event">
+    <a href="/event/{{title}}" class="w-100 h-100 pointer no-underline black">
+      <ul class="list">
+        <li>
+          <h1 class="hot-pink">{{title}}</h1>
+        </li>
+        <li>{{short_desc}}</li>
+        <li>Location: {{venue}}, {{location}}</li>
+        <li>Date: {{to_char}}</li>
+        <li>Available Tickets: {{tkts_available}}</li>
+      </ul>
+    </a>
+  </section>
+  {{/each}}
 
 </main>
