@@ -9,7 +9,7 @@
     "css-build": "postcss ./css/index.css --output ./public/style.min.css --config ./postcss.config.js",
     "test": "tape tests/*test.js | tap-spec",
     "nyc": "nyc npm test && nyc report --reporter=html && nyc report --reporter=text-lcov > coverage.lcov && codecov",
-    "build": "node .src/database/dbBuild.js"
+    "build": "node src/database/dbBuild.js"
   },
   "nodemonConfig": {
     "ignore": [

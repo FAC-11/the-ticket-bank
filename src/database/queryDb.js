@@ -3,9 +3,6 @@ const path = require('path')
 const db = require('./dbConnection')
 
 module.exports = (sqlFilePath) => {
-  const sql = file => QueryFile(path.join(__dirname, file), { minify: true })
-
-  const build = sql(sqlFilePath)
-
-  return db.query(build)
+  const sql = QueryFile(path.join(__dirname, sqlFilePath), { minify: true })
+  return db.query(sql)
 }
