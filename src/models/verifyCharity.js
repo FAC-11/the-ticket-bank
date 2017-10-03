@@ -1,0 +1,32 @@
+const { emailClient } = require('../models/email.js')
+
+module.exports = (input) => {
+  const {charityName, charityNumber, areaOfWork, charityAddress, contactName, contactSurname, contactEmail, contactNumber, randomstring} = input
+}
+
+emailClient.sendEmail({
+  "From": "steve@ticketsforgood.co.uk",
+  "To": "at1mp@libero.it",
+  "Subject": "New Charity Signup Request from theticketbank.org",
+  "TextBody":
+  `Hi,
+  ${charityName} requests your approval to signup to theticketbank.org.
+
+  Details:
+  Charity Name: ${charityName}
+  Charity Number: ${charityNumber}
+  Area of Work: ${areaOfWork}
+  Charity Address: ${charityAddress}
+  Contact Name: ${contactName}
+  Contact Surname: ${contactSurname}
+  Contact Email: ${contactEmail}
+  Contact Number: ${contactNumber}
+
+  What would you like to do:
+  Click here to approve:
+  theticketbank.org/validate/email=${contactEmail}&str=${randomstring}
+  Click here to reject:
+  theticketbank.org/reject/email=${contactEmail}&str=${randomstring}
+
+  Have a good day!`
+})

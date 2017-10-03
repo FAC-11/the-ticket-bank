@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS users (
   email         VARCHAR(30)   DEFAULT NULL UNIQUE,
   contact_phone INTEGER       DEFAULT NULL,
   password      VARCHAR(70)   NOT NULL,
-  randomstring  VARCHAR(70)   NOT NULL
+  randomstring  VARCHAR(70)   NOT NULL UNIQUE
 );
 
 CREATE TABLE IF NOT EXISTS events (
