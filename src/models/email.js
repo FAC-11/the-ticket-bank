@@ -16,12 +16,3 @@ module.exports = {
   emailClient: emailClient,
   testEmailClient: testEmailClient
 }
-
-// to send an email
-// const { emailClient } = require('path.to/models/email.js')
-// emailClient.sendEmail({
-//   "From": "steve@ticketsforgood.co.uk",
-//   "To": "test@blackhole.postmarkapp.com",
-//   "Subject": "test",
-//   "TextBody": "test"
-// })
