@@ -13,6 +13,7 @@ CREATE TABLE IF NOT EXISTS users (
   name          VARCHAR(30)   DEFAULT NULL,
   surname       VARCHAR(30)   DEFAULT NULL,
   email         VARCHAR(30)   DEFAULT NULL UNIQUE,
+  email_verified BOOLEAN      DEFAULT FALSE,
   contact_phone INTEGER       DEFAULT NULL,
   password      VARCHAR(70)   NOT NULL,
   randomstring  VARCHAR(70)   NOT NULL UNIQUE
