@@ -3,13 +3,9 @@ node_js:
 - node
 before_install:
   - npm install -g codecov
-  -  apt-get update
-  -  apt-get install language-pack-gb
-  -  /etc/init.d/postgresql stop
-  -  /etc/init.d/postgresql start 9.3
 before_script:
     - psql -c 'create database travis_ci_test;' -U postgres
-    - export TZ=Europe/London
+    - psql -c 'SET datestyle = 'DMY''
 notifications:
   email: false
 after_success: npm run nyc
