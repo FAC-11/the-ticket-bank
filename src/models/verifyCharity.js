@@ -23,9 +23,9 @@ module.exports = (input) => {
 
     What would you like to do:
     Click here to approve:
-    http://0.0.0.0:4000/validate/email=${contactEmail}&str=${randomstring}
+    http://0.0.0.0:4000/approvecharitysignup/email=${contactEmail}&str=${randomstring}
     Click here to reject:
-    http://0.0.0.0:4000/reject/email=${contactEmail}&str=${randomstring}
+    http://0.0.0.0:4000/rejectcharitysignup/email=${contactEmail}&str=${randomstring}
 
     Have a good day!`
   })

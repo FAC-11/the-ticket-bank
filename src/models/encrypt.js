@@ -4,7 +4,7 @@ const hashPassword = (plaintextPassword) => {
   return new Promise((resolve, reject) => {
     bcrypt.hash(plaintextPassword, 10, (err, hash) => {
       if (err) reject(Error('error hashing password'))
-      else if (hash) resolve(hash)
+      else resolve(hash)
     })
   })
 }

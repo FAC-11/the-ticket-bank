@@ -3,14 +3,14 @@ const router = express.Router()
 const home = require('./home')
 const signup = require('./signup')
 const newuser = require('./newUser')
-const validatecharity = require('./validateCharity')
-const rejectcharity = require('./rejectCharity')
+const approvecharitysignup = require('./approveCharitySignup')
+const rejectcharitysignup = require('./rejectCharitySignup')
 
 /* GET home page. */
 router.get('/', home)
 router.get('/signup', signup)
 router.post('/newuser', newuser)
-router.get('/validate/:userinfo', validatecharity)
-router.get('/reject/:userinfo', rejectcharity)
+router.get('/approvecharitysignup/:userinfo', approvecharitysignup)
+router.get('/rejectcharitysignup/:userinfo', rejectcharitysignup)
 
 module.exports = router

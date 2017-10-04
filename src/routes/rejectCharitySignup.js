@@ -14,7 +14,7 @@ module.exports = (req, res) => {
       }
     })
     .then(() => {
-      res.render('adminVerifiesCharity')
+      res.render('adminRejectsCharity')
     })
     .catch(err => console.log(err))
 }
