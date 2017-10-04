@@ -5,7 +5,7 @@ before_install:
   - npm install -g codecov
 before_script:
     - psql -c 'create database travis_ci_test;' -U postgres
-    - psql -c 'SET datestyle = 'DMY''
+    - psql -c 'SET datestyle = 'DMY';' -U postgres
 notifications:
   email: false
 after_success: npm run nyc
