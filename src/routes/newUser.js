@@ -14,7 +14,7 @@ module.exports = (req, res) => {
   .then(req => addRandomStringToReqBody(req))
   .then(() => addNewUser(req.body))
   .then(() => verifyCharity(req.body))
-  .then(() => console.log('all done'))
+  .then(() => res.render('charitySignupSubmit'))
   .catch((err) => {
     console.log(err);
   })

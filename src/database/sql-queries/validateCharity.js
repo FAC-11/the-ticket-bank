@@ -1,12 +1,40 @@
 const db = require('../dbConnection.js')
+const { emailClient } = require('../../models/email.js')
+const querystring = require('querystring')
 
-module.exports = (input) => {
-  const { email, randomStr } = input
+module.exports = (req, response) => {
+
+  const input = querystring.parse(req.params.userinfo)
+  const { email, str } = input
   // const string = 'UPDATE users SET verified=TRUE WHERE randomStr=$1'
-  const string = 'SELECT randomstring FROM users WHERE email=$1'
-   db.query(string, [email])
-  // const {charityName, charityNumber, areaOfWork, charityAddress, contactName, contactSurname, contactEmail, contactNumber, password, randomstring} = input
-  // const string = `INSERT INTO users (class, charity_name, charity_number, area_of_work, charity_address, name, surname, email, contact_phone, password, randomstring ) VALUES ('charity', $1, $2, $3, $4, $5, $6, $7, $8, $9, $10)`
-  //
-  // return db.query(string, [charityName, charityNumber, areaOfWork, charityAddress, contactName, contactSurname, contactEmail, contactNumber, password, randomstring])
+  const sqlRandomstring = 'SELECT randomstring FROM users WHERE email=$1'
+  const sqlUpdateVerified = 'UPDATE users SET verified =true WHERE email=$1'
+
+   db.query(sqlRandomstring, [email])
+   .then((res) => {
+     if (res[0].randomstring === str) {
+       db.query(sqlUpdateVerified, [email])
+       .then(() => {
+         emailClient.sendEmail({
+           "From": "steve@ticketsforgood.co.uk",
+           "To": "at1mp@libero.it",
+           "Subject": "Application successful",
+           "TextBody": `
+           Hi,
+
+           You are now verified and can apply to claim tickets on our platform
+           `
+         })
+         .then(() => {
+           console.log('done')
+           response.render('adminVerifiesCharity')
+         })
+       })
+      //  .then(() => {
+      //    console.log('done')
+      //    response.render('adminVerifiesCharity')
+      //  })
+
+     }
+   })
 }
