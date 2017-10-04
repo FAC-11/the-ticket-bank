@@ -5,7 +5,9 @@ module.exports = (req, res, next) => {
     .then(event => {
       if (!event) {
         next()
+      } else {
+        res.render('event', event)
       }
-      res.render('event', event)
     })
+    .catch(console.error)
 }
