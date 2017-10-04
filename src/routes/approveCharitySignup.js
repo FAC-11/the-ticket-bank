@@ -1,21 +1,17 @@
-const fetchRandomString = require('../database/sql-queries/fetchRandomString')
-const querystring = require('querystring')
-const updateVerifiedTrue = require('../database/sql-queries/updateVerifiedTrue')
-const validationEmail = require('../models/validationEmail')
+const fetchEmailFromRandString = require('../database/sql-queries/fetchEmailFromRandString')
+const setCharityVerifiedTrue = require('../database/sql-queries/setCharityVerifiedTrue')
+const sendEmailCharityApproved = require('../models/sendEmailCharityApproved')
 
 module.exports = (req, res) => {
-  let userinfo = querystring.parse(req.params.userinfo)
-
-  fetchRandomString(userinfo.email)
-    .then((str) => {
-      if (str[0].randomstring === userinfo.str) {
-        updateVerifiedTrue(userinfo.email)
+  let reqRandomString = req.params.userinfo
+  fetchEmailFromRandString(reqRandomString)
+    .then((rows) => {
+      let email = rows[0].email
+      if (email) {
+        setCharityVerifiedTrue(email).then((email) => sendEmailCharityApproved(email))
       } else {
         return Promise.reject(new Error('There was a problem with your request'))
       }
-    })
-    .then(() => {
-      validationEmail(userinfo.email)
     })
     .then(() => {
       res.render('adminVerifiesCharity')
