@@ -19,7 +19,6 @@
   "dependencies": {
     "bcrypt": "^1.0.3",
     "body-parser": "~1.17.1",
-    "codecov": "^2.3.0",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.3",
     "env2": "^2.2.0",
