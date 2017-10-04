@@ -4,10 +4,10 @@ module.exports = (input) => {
   const {charityName, charityNumber, areaOfWork, charityAddress, contactName, contactSurname, contactEmail, contactNumber, randomstring} = input
 
   emailClient.sendEmail({
-    "From": "steve@ticketsforgood.co.uk",
-    "To": "abdullah.chaudhry@outlook.com",
-    "Subject": "New Charity Signup Request from theticketbank.org",
-    "TextBody": `
+    'From': 'steve@ticketsforgood.co.uk',
+    'To': 'abdullah.chaudhry@outlook.com',
+    'Subject': 'New Charity Signup Request from theticketbank.org',
+    'TextBody': `
     Hi,
     ${charityName} requests your approval to signup to theticketbank.org.
 

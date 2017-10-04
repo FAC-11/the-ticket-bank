@@ -3,8 +3,8 @@ const router = express.Router()
 const home = require('./home')
 const signup = require('./signup')
 const newuser = require('./newUser')
-const validatecharity = require('../models/validateCharity')
-const rejectcharity = require('../models/rejectCharity')
+const validatecharity = require('./validateCharity')
+const rejectcharity = require('./rejectCharity')
 
 /* GET home page. */
 router.get('/', home)
