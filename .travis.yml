@@ -2,6 +2,7 @@ language: node_js
 node_js:
 - node
 before_install:
+  - npm install -g codecov
   - sudo apt-get update
   - sudo apt-get install language-pack-gb
   - sudo /etc/init.d/postgresql stop
@@ -11,8 +12,6 @@ before_script:
     - export TZ=Europe/London
 notifications:
   email: false
-before_install:
-- npm install -g codecov
 after_success: npm run nyc
 env:
   global:
