@@ -5,7 +5,7 @@ module.exports = (input) => {
 
   emailClient.sendEmail({
     "From": "steve@ticketsforgood.co.uk",
-    "To": "at1mp@libero.it",
+    "To": "abdullah.chaudhry@outlook.com",
     "Subject": "New Charity Signup Request from theticketbank.org",
     "TextBody": `
     Hi,

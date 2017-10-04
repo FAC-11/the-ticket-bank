@@ -17,7 +17,7 @@ module.exports = (req, response) => {
        .then(() => {
          emailClient.sendEmail({
            "From": "steve@ticketsforgood.co.uk",
-           "To": "at1mp@libero.it",
+           "To": "abdullah.chaudhry@outlook.com",
            "Subject": "Application successful",
            "TextBody": `
            Hi,
