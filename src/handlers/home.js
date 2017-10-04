@@ -8,8 +8,6 @@ const getEvents = () => {
     })
 }
 
-getEvents();
-
 module.exports = {
   getEvents
 }

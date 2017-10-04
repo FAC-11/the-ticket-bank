@@ -7,7 +7,7 @@ const error = require('./error')
 /* GET home page. */
 router.get('/', home)
 router.get('/event/:eventTitle', event)
-router.use(error.client);
-router.use(error.server);
+router.use(error.client)
+router.use(error.server)
 
 module.exports = router
