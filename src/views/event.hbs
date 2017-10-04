@@ -1,1 +1,23 @@
-<h1> fshbefi</h1>
+{{>navbar}}
+<main class="dib w-100">
+
+<h1 class="hot-pink f3 tc">{{title}}</h1>
+  <section class="w-80 center">
+      <ul class="list pl0">
+        <li class="b pb3 f3">{{short_desc}}</li>
+        <li class="pb2"><span class="b">Location:</span> {{venue}}, {{location}}</li>
+        <li class="pb2"><span class="b">Date:</span> {{event_date}}</li>
+        <li class="pb2"><span class="b">Start Time:</span> {{start_time}}</li>
+        <li class="pb2"><span class="b">End Time:</span> {{end_time}}</li>
+        <li class="pb2"><span class="b">Available Tickets:</span> {{tkts_available}}</li>
+        <li class="pb2"><span class="b">Maximum Ticket Allocation:</span> {{max_allocation}}</li>
+        <li class="pb2"><span class="b">Minimum Age:</span> {{min_age}}</li>
+        <li class="pb2"><span class="b">Additional information:</span> {{info}}</li>
+      </ul>
+  </section>
+
+  <section class="w-80 ba center">
+    <p class="pa1">{{long_desc}}</p>
+  </section>
+
+</main>
