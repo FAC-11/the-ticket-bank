@@ -1,8 +1,13 @@
 language: node_js
 node_js:
 - node
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install language-pack-es
+  - sudo /etc/init.d/postgresql stop
+  - sudo /etc/init.d/postgresql start 9.3
 services:
-    - postgresql
+  - postgresql
 before_script:
     - psql -c 'create database travis_ci_test;' -U postgres
     - export TZ=Europe/London
