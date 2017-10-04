@@ -4,8 +4,8 @@ node_js:
 services:
     - postgresql
 before_script:
-    - export TZ=Europe/London
     - psql -c 'create database travis_ci_test;' -U postgres
+    - export TZ=Europe/London
 notifications:
   email: false
 before_install:
