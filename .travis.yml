@@ -3,10 +3,10 @@ node_js:
 - node
 before_install:
   - npm install -g codecov
-  - sudo apt-get update
-  - sudo apt-get install language-pack-gb
-  - sudo /etc/init.d/postgresql stop
-  - sudo /etc/init.d/postgresql start 9.3
+  -  apt-get update
+  -  apt-get install language-pack-gb
+  -  /etc/init.d/postgresql stop
+  -  /etc/init.d/postgresql start 9.3
 before_script:
     - psql -c 'create database travis_ci_test;' -U postgres
     - export TZ=Europe/London
