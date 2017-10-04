@@ -3,7 +3,7 @@ node_js:
 - node
 before_install:
   - sudo apt-get update
-  - sudo apt-get install language-pack-es
+  - sudo apt-get install language-pack-gb
   - sudo /etc/init.d/postgresql stop
   - sudo /etc/init.d/postgresql start 9.3
 before_script:
