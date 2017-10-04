@@ -4,10 +4,11 @@ const sql = require('../database/index')
 const getEvents = () => {
   return queryDb(sql.getEvents)
     .then(events => {
-      console.log(events)
       return JSON.parse(JSON.stringify(events))
     })
 }
+
+getEvents();
 
 module.exports = {
   getEvents

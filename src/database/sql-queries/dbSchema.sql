@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE TABLE IF NOT EXISTS events (
   id            SERIAL        PRIMARY KEY,
   title         VARCHAR(100)  NOT NULL,
-  short_desc    VARCHAR(200)  DEFAULT NULL,     --short escription of event
+  short_desc    VARCHAR(200)  DEFAULT NULL,     --short description of event
   long_desc     VARCHAR(2000) DEFAULT NULL,     --long dscription of event
   venue         VARCHAR(100)  DEFAULT NULL,
   location      VARCHAR(100)  DEFAULT NULL,
