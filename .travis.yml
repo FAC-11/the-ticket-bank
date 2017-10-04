@@ -5,12 +5,13 @@ before_install:
   - npm install -g codecov
 before_script:
     - psql -c 'create database travis_ci_test;' -U postgres
-    - psql -c 'SET datestyle = 'DMY';' -U postgres
-    - psql -c 'SHOW datestyle;' -U postgres
+    - psql -c 'SET datestyle = 'DMY';' -U postgres -d travis_ci_test
+    - psql -c 'SHOW datestyle;' -U postgres -d travis_ci_test
 notifications:
   email: false
 after_success: npm run nyc
 env:
   global:
+  - DATABASE_URL: postgres://postgres:@localhost/travis_ci_test
   - secure: ljh3fYLHk9BRNO6mUrLUJubj4ai3xDWo68JFaLtHjHBSrp2Zy0/O0iJDpwS1ohaTeLQ+WVgqTXXHi2We+0zS0o4Ut09/dQ87/BOg3MllGkOKLlQVO2aw1QEy/ttnq49t1tERexQxtQuLOSinkNbFk1IzFJ62Yj7oYzHNVrF6luGNWhXvYYegQuD63N8cD/3w12TSR6QF+tHbBIAG3q5tXTg4mx2fMHh6HJwpqJE1B6oziw7hGf0UHfdsj4NMy+1XQneeQjZUUXOjOSYxSuJzmiiGY+uOUNjCYhmfl6Mp7Z3qMhnKYTdr7I5LFoJquJpbjCnWN8N2P4kmnMHubfQYffgmq1y3vgx1Po4q5401td+PcXS8gzd91ggtOmAC9rHoXNT+ZweCZSPVV+VnuXjeZrevtAIVvu6TyzkM1BH0MwPBxxKWUbqa611qlCZ3zazW+hpA0FPpLiA4J1xIk0uH10Cgr3nP4dKX70lQUM2jJZeDwo9WuZM0mOBFl/zp2ran65o/ZV9FPBJfrPmUzosbM0I4HPFczlwdzZobI2lq0b4kEQi8on7qY7k/XdeCIzmjceNCGLYbbSr8kTzkNE6KWvFlrQ5h0J26xfMwvFxH5i7C3orI3XiugIOEZ1ntrPEBsccp6RadxldfGxE2bMhNfgsD9x/e8G/vlGyccMf04r8=
   - secure: Xa4bHc6cM00ZEOE2ftietXteuloTZLuCaVO1wr8ML6wCN4tNefnAX1bHR7NgsaKwGTAMneYIaJF93oaD3BzPkxuHsyTn4WTTT6Mz6A0jqXZWRj2CdICKfcYy9A8Ug+ea337DwYVfz9sb5cTUTn2uu4YaAyP3CDP8OGaXIdRF8s3bn5DIaaF6UwHrtiERLBZJFil68RYQKxZ8GQ7CC/+9Ak3fE41nJRlHAxL/sY/QajLGpqT0AkvD82tVuYXPjiT9loYlBFm5QiTJS7NwntM9SJgPM6hin2Jrv0Zrxz7NVrBY/rN1ixM41CxTgtGoTYJuLVP8J7nCb187rMDGjBGQ8KC9CoT/0IFq7yTgkZJYIylay7FHIXo4Nhc1kK35FRIqa2tgZ6z95TvPgQPCep1QqhP076E9O6QbBfO7raWe4WvyW7uU8oG5+gxdQQIXzXu1LxNczCYwCDZiSd4jmN8mlzTO1678cS2vTFaOUG1iWKSswSmtO5P1Pt/9fvFhmEPZLguEUBf3g8Uh1GucscHnKOnEjYwI7dPrMRoiI6qY+tIQcy2qU3N4VXOW6AjhMFBFwFxIcKGJwHeO1aHOAhKMOul7LlM5ftFmMgMcxxee60UQl+4vgwZVcg1T8DvyoYXgi1M5wjDitfaPXomf5cuBOaCzVMsjBZdclrKwIuIAshk=
