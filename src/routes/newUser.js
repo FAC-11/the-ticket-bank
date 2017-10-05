@@ -5,6 +5,7 @@ const addNewUser = require('../database/sql-queries/addNewUser.js')
 const verifyCharity = require('../models/verifyCharity.js')
 
 module.exports = (req, res) => {
+  console.log(req.body)
   validateSignup(req)
     .then(password => bcrypt.hash(password, 10))
     .then(hashedpwd => {
