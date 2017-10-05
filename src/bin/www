@@ -7,6 +7,7 @@
 const app = require('../app')
 const debug = require('debug')('neptune:server')
 const http = require('http')
+const hostname = process.env.HOSTNAME || 'localhost'
 
 /**
  * Normalize a port into a number, string, or false.
@@ -86,6 +87,6 @@ const server = http.createServer(app)
  */
 
 server.listen(port)
-console.log(`listening on 0.0.0.0:${ port }`)
+console.log(`listening on ${hostname}:${ port }`)
 server.on('error', onError)
 server.on('listening', onListening)
