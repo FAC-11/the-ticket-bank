@@ -1,5 +1,5 @@
 const fetchEmailFromRandString = require('../database/sql-queries/fetchEmailFromRandString')
-const sendEmailCharityRejected = require('../models/sendEmailCharityRejected')
+const emailCharityRejected = require('../models/emailCharityRejected')
 const setCharityVerifiedFalse = require('../database/sql-queries/setCharityVerifiedFalse')
 
 module.exports = (req, res) => {
@@ -8,7 +8,7 @@ module.exports = (req, res) => {
     .then((rows) => {
       let email = rows[0].email
       if (email) {
-        setCharityVerifiedFalse(email).then((email) => sendEmailCharityRejected(email))
+        setCharityVerifiedFalse(email).then((email) => emailCharityRejected(email))
       } else {
         return Promise.reject(new Error('There was a problem with your request'))
       }
