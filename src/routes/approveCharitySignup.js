@@ -1,6 +1,6 @@
 const fetchEmailFromRandString = require('../database/sql-queries/fetchEmailFromRandString')
 const setCharityVerifiedTrue = require('../database/sql-queries/setCharityVerifiedTrue')
-const sendEmailCharityApproved = require('../models/sendEmailCharityApproved')
+const emailCharityApproved = require('../models/emailCharityApproved')
 
 module.exports = (req, res) => {
   let reqRandomString = req.params.userinfo
@@ -8,13 +8,13 @@ module.exports = (req, res) => {
     .then((rows) => {
       let email = rows[0].email
       if (email) {
-        setCharityVerifiedTrue(email).then((email) => sendEmailCharityApproved(email))
+        setCharityVerifiedTrue(email).then((email) => emailCharityApproved(email))
       } else {
         return Promise.reject(new Error('There was a problem with your request'))
       }
     })
     .then(() => {
-      res.render('adminVerifiesCharity')
+      res.render('adminApprovesCharity')
     })
     .catch(err => console.log(err))
 }
