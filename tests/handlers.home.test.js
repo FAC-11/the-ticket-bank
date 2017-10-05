@@ -23,8 +23,10 @@ tape('Test handlers/home', (t) => {
       return getEvents()
     })
     .then(actual => {
-      t.deepEqual(actual, expected, 'All events in test database should be returned')
-      t.end()
+      t.equal(Array.isArray(actual), true, 'Response should be an array')
+      t.equal(actual[0].title, expected[0].title, 'Array elements should include an event title')
+      t.equal(actual[1].short_desc, expected[1].short_desc, 'Array elements should include an event short description')  
+      t.end()    
     })
     .catch(console.error)
 })
