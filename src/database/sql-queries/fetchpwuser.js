@@ -5,4 +5,3 @@ module.exports = (email) => {
   // query to see if password exists
   return db.query(string, [email])
 }
-  

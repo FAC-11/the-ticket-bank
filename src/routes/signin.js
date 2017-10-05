@@ -1,20 +1,22 @@
-const {signin, checkPw} = require('../models/queries')
-const {setToken} = require('../models/token')
+const fetchpwuser = require('../database/sql-queries/fetchpwuser')
+const checkpassword = require('../models/checkpassword')
+// const {setToken} = require('../models/token')
 let userId
 
 module.exports = (req, res) => {
-  signin(req.body.username)
+  fetchpwuser(req.body.username)
     .then(hashedPw => {
       if (hashedPw.length !== 0) {
         userId = hashedPw[0].id
-        return checkPw(req.body.password, hashedPw[0].password)
-      } else throw new Error('No such user')
+        checkpassword(req.body.password, hashedPw[0].password)
+      } else return Promise.reject(new Error('No such user'))
     })
     .then(trueorfalse => {
       if (trueorfalse) {
-        setToken(req, res, userId, req.body.username)
-      } else throw new Error('Incorrect password')
+        req.login(userId)
+        // setToken(req, res, profile, req.body.username)
+      } else return Promise.reject(new Error('Incorrect password'))
     })
+    .then(res.redirect('/'))
     .catch(err => res.send(err.message))
-  // .then(res.redirect('/'))
 }
