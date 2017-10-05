@@ -44,6 +44,7 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
     "istanbul": "^0.4.5",
+    "nock": "^9.0.22",
     "nodemon": "^1.12.1",
     "nyc": "^11.2.1",
     "postcss-clean": "^1.1.0",
@@ -51,6 +52,7 @@
     "postcss-custom-media": "^6.0.0",
     "postcss-custom-properties": "^6.1.0",
     "postcss-import": "^11.0.0",
+    "supertest": "^3.0.0",
     "tap-spec": "^4.1.1",
     "tape": "^4.8.0"
   }
