@@ -3,7 +3,7 @@ const { emailClient } = require('../models/email.js')
 module.exports = (input) => {
   const { contactName, contactEmail, emailVerifyString } = input
 
-  emailClient.sendEmail({
+  return emailClient.sendEmail({
     'From': 'steve@ticketsforgood.co.uk',
     'To': `${contactEmail}`,
     'Subject': 'Verify your email address from theticketbank.org',

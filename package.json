@@ -8,6 +8,9 @@
     "css-watch": "postcss ./css/index.css --output ./public/style.min.css --watch --config ./postcss.config.js",
     "css-build": "postcss ./css/index.css --output ./public/style.min.css --config ./postcss.config.js",
     "test": "tape tests/*test.js | tap-spec",
+    "test-email": "NODE_ENV=test tape tests/models.email.test.js | tap-spec",
+    "test-charity-email-verify": "NODE_ENV=test tape tests/models.charityVerifyEmail.test.js | tap-spec",
+    "test-routes-newuser": "NODE_ENV=test tape tests/routes.newuser.test.js | tap-spec",
     "nyc": "nyc npm test && nyc report --reporter=html && nyc report --reporter=text-lcov > coverage.lcov && codecov",
     "build": "node src/database/dbBuild.js"
   },
