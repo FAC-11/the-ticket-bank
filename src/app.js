@@ -7,6 +7,7 @@ const bodyParser = require('body-parser')
 const exphbs = require('express-handlebars')
 
 const index = require('./routes/index')
+const helpers = require('./views/helpers/index')
 
 const app = express()
 
@@ -17,7 +18,8 @@ app.engine('hbs', exphbs({
   extname: 'hbs',
   layoutsDir: path.join(__dirname, 'views', 'layouts'),
   partialsDir: path.join(__dirname, 'views', 'partials'),
-  defaultLayout: 'main'
+  defaultLayout: 'main',
+  helpers
 }))
 
 // uncomment after placing your favicon in /public
