@@ -5,9 +5,10 @@ const logger = require('morgan')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 const exphbs = require('express-handlebars')
-
+const cookieSession = require('cookie-session')
 const index = require('./routes/index')
 const helpers = require('./views/helpers/index')
+require('env2')('config.env')
 
 const app = express()
 
@@ -21,12 +22,18 @@ app.engine('hbs', exphbs({
   defaultLayout: 'main',
   helpers
 }))
-
+console.log('env',process.env.SECRET)
 // uncomment after placing your favicon in /public
 // app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'))
+app.use(cookieSession({
+  name:'session',
+  secret: process.env.SECRET,
+  maxAge: 7*24*60*60*1000 // 1 Week
+}))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
+
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, '../public')))
 
