@@ -22,14 +22,13 @@ app.engine('hbs', exphbs({
   defaultLayout: 'main',
   helpers
 }))
-console.log('env',process.env.SECRET)
 // uncomment after placing your favicon in /public
 // app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'))
 app.use(cookieSession({
-  name:'session',
+  name: 'session',
   secret: process.env.SECRET,
-  maxAge: 7*24*60*60*1000 // 1 Week
+  maxAge: 7 * 24 * 60 * 60 * 1000 // 1 Week
 }))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
