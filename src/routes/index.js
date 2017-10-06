@@ -14,13 +14,9 @@ router.get('/event/:eventTitle', event)
 router.get('/signup', newcharitysignup)
 router.post('/newuser', newcharitysubmit)
 router.get('/approvecharitysignup/:userinfo', approvecharitysignup)
-<<<<<<< HEAD
-router.get('/rejectcharitysignup/:userinfo', rejectcharitysignup)
-router.get('/verifycharityemail/:userinfo', verifycharityemail)
-=======
 router.get('/rejectcharitysignup/:userinfo', rejectcharitysignup) //should userinfo be named randomstring?
+router.get('/verifycharityemail/:userinfo', verifycharityemail)
 router.use(error.client)
 router.use(error.server)
->>>>>>> master
 
 module.exports = router
