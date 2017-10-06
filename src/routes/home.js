@@ -1,5 +1,9 @@
-const { getTitle } = require('../handlers/home')
+const { getEvents } = require('../handlers/home')
 
 module.exports = (req, res) => {
-  res.render('home', { title: getTitle() })
+  getEvents()
+    .then(events => {
+      res.render('home', { events })
+    })
+    .catch(console.error)
 }
