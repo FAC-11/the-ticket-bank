@@ -8,7 +8,7 @@ module.exports = (req, res) => {
     .then((rows) => {
       let email = rows[0].email
       if (email) {
-        setCharityVerifiedFalse(email).then((email) => emailCharityRejected(email))
+        setCharityVerifiedFalse(email).then((email) => emailCharityRejected(email)) // is setCharityVerifiedFalse needed? default is False in dbSchema
       } else {
         return Promise.reject(new Error('There was a problem with your request'))
       }
