@@ -19,8 +19,8 @@ module.exports = (req, res) => {
     })
     .then(() => {
       emailCharityVerifyEmail(req.body)
+      res.render('newCharitySubmit')
     })
-    .then(() => res.render('newCharitySubmit'))
     .catch((err) => {
       console.log(err)
     })
