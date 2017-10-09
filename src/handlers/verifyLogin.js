@@ -3,10 +3,11 @@ const queryDb = require('../database/queryDb')
 const sql = require('../database/index')
 
 const verifyLogin = (req, res) => {
+  console.log('request', req.body)
   return queryDb(sql.getHashedPassword, [req.body.email])
     .then(hashedPassword => {
       if (!hashedPassword.length) {
-        res.render('login', {
+        res.status(400).render('login', {
           errorEmail: 'Email not found'
         })
       }
@@ -15,7 +16,7 @@ const verifyLogin = (req, res) => {
     .then(bool => {
       if (bool) return queryDb(sql.getUserDetails, [req.body.email])
       else {
-        res.render('login', {
+        res.status(400).render('login', {
           errorPassword: 'Wrong Password'
         })
       }
