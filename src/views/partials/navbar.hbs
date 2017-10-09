@@ -8,7 +8,14 @@
 
     <ul id="nav-menu" class="list pl0 white dn mv0 f4">
         <li class="pv2 pl2"><a class="link white" href="/">HOME</a></li>
+
+        {{#unless session.userId}}
         <li class="pv2 pl2"><a class="link white" href="/login">LOGIN</a></li>
         <li class="pv2 pl2"><a class="link white" href="/sign-up">REGISTER AS A CHARITY</a></li>
+        {{/unless}}
+
+        {{#if session.isAdmin}}
+        <li class="pv2 pl2"><a class="link white" href="#">CREATE EVENT</a></li>
+        {{/if}}
     </ul>
 </nav>
