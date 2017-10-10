@@ -1,20 +1,20 @@
 {{>navbar}}
-<main class="">
+<main>
 <section id="login" class="tc">
    <form class="bg-tb dib pa4 pt1 mt4" action="/login" methd="post">
      <h1>Login</h1>
-       <label>Email: </label>
+       <label class="f4">Email: </label>
         {{#if errorEmail}}
-         <label>{{errorEmail}}</label>
+         <label class="f4">{{errorEmail}}</label>
        {{/if}}
-       <input class="db f5 pa2 ma2" name="email" required="" type="text">
-       <label>Password: </label>
+       <input class="db f5 pa2 ma2" name="email" required="" type="text" placeholder="eman@mail.com">
+       <label class="f4">Password: </label>
            {{#if errorPassword}}
-         <label>{{errorPassword}}</label>
+         <label class="f4">{{errorPassword}}</label>
        {{/if}}
        <input class="db f5 pa2 ma2" name="password" placeholder="*********" required="" type="password">
        <div class="validation" id="validation"></div>
-       <button class="bg-black white f5 br1 pt1 pb1 pr3 pl3 bn" type="submit" name="submit">Login</button>
+       <button class="bg-black white f4 br1 pt1 pb1 pr3 pl3 mt2 bn" type="submit" name="submit">Login</button>
    </form>
  </section>
  </main>
