@@ -19,16 +19,16 @@ const testEvent = {
   maxallocation: 2
 }
 
-tape('Test /createevent route', (t) => {
+tape('Test /addevent route', (t) => {
   resetTestDb()
     .then(() => {
       supertest(app)
-        .post('/createevent')
+        .post('/addevent')
         .send(testEvent)
         .type('form')
         .end((err, res) => {
           t.ok(res.text, 'Response text should have content')
-          t.equal(res.statusCode, 200, 'Status code is 200')
+          t.equal(res.statusCode, 302, 'Status code is 302')
           t.error(err, 'No error')
           t.end()
         })

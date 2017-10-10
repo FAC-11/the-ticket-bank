@@ -1,1 +1,1 @@
-INSERT INTO events (title, short_desc, long_desc, venue, location, event_date, start_time, end_date, end_time, min_age, tkts_available, tkt_name, info, max_allocation) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING title;
+INSERT INTO events (title, short_desc, long_desc, venue, location, event_date, start_time, end_date, end_time, min_age, tkts_available, tkt_name, info, max_allocation) VALUES ($1, $2, $3, $4, $5, to_date($6,'DD-MM-YYYY'), $7, to_date($8,'DD-MM-YYYY'), $9, $10, $11, $12, $13, $14) RETURNING title;
