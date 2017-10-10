@@ -20,7 +20,7 @@ const validate = (req) => {
     else if (req.body.minage.match(/[A-Z]/ig)) reject(new Error('Minimum age can only contain numbers'))
     else if (req.body.ticketsavailable.match(/[A-Z]/ig)) reject(new Error('Tickets available can only contain numbers'))
     else if (req.body.ticketname.length === 0) reject(new Error('The ticket name can\'t be empty'))
-    else if (req.body.ticketname.length > 49) reject(new Error('The ticket name can\'t be longer than 50 characters'))
+    // else if (req.body.ticketname.length > 49) reject(new Error('The ticket name can\'t be longer than 50 characters'))
     else if (req.body.additionalinfo.length === 0) reject(new Error('The additional information can\'t be empty'))
     else if (req.body.additionalinfo.length > 199) reject(new Error('The additional information can\'t be longer than 200 characters'))
     else if (req.body.maxallocation.match(/[A-Z]/ig)) reject(new Error('Maxium allocation can only contain numbers'))

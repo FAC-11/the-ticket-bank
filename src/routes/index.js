@@ -22,7 +22,7 @@ router.post('/newuser', newcharitysubmit)
 router.get('/approvecharitysignup/:userinfo', approvecharitysignup)
 router.get('/rejectcharitysignup/:userinfo', rejectcharitysignup) // should userinfo be named randomstring?
 router.get('/addevent', addevent)
-router.post('/createevent', createevent)
+router.post('/addevent', createevent)
 router.get('/rejectcharitysignup/:userinfo', rejectcharitysignup)
 router.get('/verifycharityemail/:userinfo', verifycharityemail)
 
