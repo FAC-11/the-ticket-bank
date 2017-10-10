@@ -1,30 +1,32 @@
-<section id="signup" class="signup">
-  <form class="signup" action="/newuser" method="post">
-    <header>Signup</header>
-    <label for="name">Charity name:</label>
-    <input type="text" name="charityName" value="{{input.charityName}}"></input>
-    <label for="name">Charity number:</label>
-    <input type="text" name="charityNumber" value="{{input.charityNumber}}">
-    <label for="name">Area of work (field of support)</label>
-    <input type="text" name="areaOfWork" value="{{input.areaOfWork}}">
-    <label for="name">Main contact name:</label>
-    <input type="text" name="contactName" value="{{input.contactName}}">
-    <label for="name">Main contact surname:</label>
-    <input type="text" name="contactSurname" value="{{input.contactSurname}}">
-    <label for="name">Contact number of main contact</label>
-    <input type="text" name="contactNumber" value="{{input.contactNumber}}">
-    <label for="name">Address of charity</label>
-    <input type="text" name="charityAddress" value="{{input.charityAddress}}">
-    <label for="name">Email address:</label>
-    <input type="text" name="contactEmail" value="{{input.contactEmail}}">
-    <label for="name">Password:</label>
-    <input type="password" name="password" value="">
-    <label for="name">Confirm password:</label>
-    <input type="password" name="confirmPassword" value="">
-
+{{>navbar}}
+<main>
+<section id="signup" class="tc">
       {{#if err}}
-         <p>{{err}}</p>
+         <p class="f3 red pt4">{{err}}</p>
        {{/if}}
-    <button type="submit" name="submit">Signup</button>
+  <form class="bg-tb dib pa4 pt1 mt4 mb4" action="/newuser" method="post">
+    <h1>Signup</h1>
+    <label  class="f4" for="name">Charity Name:</label>
+    <input class="db f5 pa2 ma2" type="text" name="charityName" value="{{input.charityName}}"></input>
+    <label  class="f4" for="name">Charity Number:</label>
+    <input class="db f5 pa2 ma2" type="text" name="charityNumber" value="{{input.charityNumber}}">
+    <label  class="f4" for="name">Area of Work:</label>
+    <input class="db f5 pa2 ma2" type="text" name="areaOfWork" value="{{input.areaOfWork}}">
+    <label  class="f4" for="name">Contact Name:</label>
+    <input class="db f5 pa2 ma2" type="text" name="contactName" value="{{input.contactName}}">
+    <label  class="f4" for="name">Contact Surname:</label>
+    <input class="db f5 pa2 ma2" type="text" name="contactSurname" value="{{input.contactSurname}}">
+    <label  class="f4" for="name">Contact Telephone:</label>
+    <input class="db f5 pa2 ma2" type="text" name="contactNumber" value="{{input.contactNumber}}">
+    <label  class="f4" for="name">Charity Address:</label>
+    <input class="db f5 pa2 ma2" type="text" name="charityAddress" value="{{input.charityAddress}}">
+    <label  class="f4" for="name">Email:</label>
+    <input class="db f5 pa2 ma2" type="text" name="contactEmail" value="{{input.contactEmail}}">
+    <label class="f4" for="name">Password:</label>
+    <input class="db f5 pa2 ma2" type="password" name="password" value="">
+    <label for="name">Confirm Password:</label>
+    <input class="db f5 pa2 ma2" type="password" name="confirmPassword" value="">
+    <button class="bg-black white f4 br1 pt1 pb1 pr3 pl3 mt2 bn"  type="submit" name="submit">Sign Up</button>
   </form>
 </section>
+</main>
