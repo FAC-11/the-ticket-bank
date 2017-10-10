@@ -3,7 +3,6 @@ const { createevent } = require('../database/index')
 
 module.exports = (body) => {
   let { title, shortdesc, longdesc, venue, location, startdatetime, enddatetime, minage, ticketsavailable, ticketname, additionalinfo, maxallocation } = body
-  console.log(ticketsavailable)
   let startdate = startdatetime.split(' ')[0]
   let starttime = startdatetime.split(' ')[1]
   let enddate = enddatetime.split(' ')[0]
