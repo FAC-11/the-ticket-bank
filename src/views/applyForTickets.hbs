@@ -1,31 +1,34 @@
 {{>navbar}}
 <main>
-<section class="tc">
-      {{#if err}}
-         <p class="f3 red pt4">{{err}}</p>
-       {{/if}}
-  <form class="bg-tb dib pa4 pt1 mt4 mb4" action="/tickets" method="post">
-    <h1>Apply for Tickets</h1>
+  <section class="tc">
+    {{#if err}}
+    <p class="f3 red pt4">{{err}}</p>
+    {{/if}}
+    <form class="bg-tb dib pa4 pt1 mt4 mb4" action="/tickets" method="post">
+      <h1>Apply for Tickets</h1>
 
-    <p>The maximum number of tickets you can apply for is {{maxNumber}}</p>
-    
-   <input class="db f5 pa2 ma2" type="text" name="charityName" value="" required>
-    <label  class="f4" for="name">Charity Name:</label>
-     {{#each permittedTicket}}
-    <label  class="f4" for="name">Names of participant:</label>
-    <input class="db f5 pa2 ma2" type="text" name="namesOfParticipant" value="" required>
-    <label  class="f4" for="name">Age of participant:</label>
-    <input class="db f5 pa2 ma2" type="text" name="ageOfParticipant" value="" required>
-     <label  class="f4" for="name">Telephone:</label>
-    <input class="db f5 pa2 ma2" type="text" name="telephoneOfParticipant" value="">
-      <label  class="f4" for="name">Email:</label>
-    <input class="db f5 pa2 ma2" type="text" name="emailOfParticipant" value="" required>
-    <label  class="f4" for="name">Location:</label>
-    <input class="db f5 pa2 ma2" type="text" name="locationOfParticipant" value="" required>
+      <p>The maximum number of tickets you can apply for is {{max_allocation}}</p>
 
-    <fieldset>
-  <legend>Ethnicity:</legend>
-  <select class="form-control dropdown" id="ethnicity" name="ethnicity">
+
+      <label class="f5" for="name">Charity Name:</label>
+      <input class="db f5 pa2 ma2" type="text" name="charityName" value="" required>
+      
+      {{#each permittedTicket}}
+      <section class = 'mt2 ba bg-tb'>
+      <label class="f5" for="name">Names of participant:</label>
+      <input class="db f5 pa2 ma2" type="text" name="namesOfParticipant" value="" required>
+      <label class="f5" for="name">Age of participant:</label>
+      <input class="db f5 pa2 ma2" type="text" name="ageOfParticipant" value="" required>
+      <label class="f5" for="name">Telephone:</label>
+      <input class="db f5 pa2 ma2" type="text" name="telephoneOfParticipant" value="">
+      <label class="f5" for="name">Email:</label>
+      <input class="db f5 pa2 ma2" type="text" name="emailOfParticipant" value="" required>
+      <label class="f5" for="name">Location:</label>
+      <input class="db f5 pa2 ma2" type="text" name="locationOfParticipant" value="" required>
+
+      <fieldset class="bn">
+        <legend>Ethnicity:</legend>
+        <select id="ethnicity" name="ethnicity">
     <option value="" selected="selected" disabled="disabled">-- select one --</option>
     <optgroup label="White">
       <option value="White English">English</option>
@@ -63,13 +66,15 @@
       <option value="Other">Any other ethnic group</option>
     </optgroup>
   </select>
-</fieldset>
-       {{/each}}
+      </fieldset>
+      </section>
+      {{/each}}
 
-    <input class="db f5 pa2 ma2" type="text" name="additionalInfo" value="">
-    <label  class="f4" for="name">Additional Info:</label>
-    
-    <button class="bg-black white f4 br1 pt1 pb1 pr3 pl3 mt2 bn"  type="submit" name="submit">Sign Up</button>
-  </form>
-</section>
+
+      <label class="f5" for="name">Additional Info:</label>
+      <input class="db f5 pa2 ma2" type="text" name="additionalInfo" value="">
+
+      <button class="bg-black white f5 br1 pt1 pb1 pr3 pl3 mt2 bn" type="submit" name="submit">Sign Up</button>
+    </form>
+  </section>
 </main>
