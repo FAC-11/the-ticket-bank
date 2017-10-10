@@ -17,7 +17,8 @@ CREATE TABLE IF NOT EXISTS users (
   contact_phone INTEGER       DEFAULT NULL,
   password      VARCHAR(70)   NOT NULL,
   randomstring  VARCHAR(70)   NOT NULL UNIQUE,
-  admin         BOOLEAN       DEFAULT FALSE
+  admin         BOOLEAN       DEFAULT FALSE,
+  email_verify_string  VARCHAR(70)   NOT NULL UNIQUE
 );
 
 CREATE TABLE IF NOT EXISTS events (

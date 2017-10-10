@@ -23,12 +23,12 @@ const expected = {
 tape('Test handlers/event', (t) => {
   resetTestDb()
     .then(res => {
-      return getSingleEvent({eventTitle:'Fac Welcome'})
+      return getSingleEvent({eventTitle: 'Fac Welcome'})
     })
     .then(actual => {
       t.equal(actual.title, expected.title, 'Response for single event should include an event title')
       t.equal(actual.location, expected.location, 'Response for single event should include a event location')
-      t.equal(actual.short_desc, expected.short_desc, 'Response for single event should include a short description')            
+      t.equal(actual.short_desc, expected.short_desc, 'Response for single event should include a short description')
       t.end()
     })
     .catch(console.error)
