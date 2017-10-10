@@ -2,27 +2,29 @@
   <form class="signup" action="/newuser" method="post">
     <header>Signup</header>
     <label for="name">Charity name:</label>
-    <input type="text" name="charityName" value="">
+    <input type="text" name="charityName" value="{{input.charityName}}"></input>
     <label for="name">Charity number:</label>
-    <input type="text" name="charityNumber" value="">
+    <input type="text" name="charityNumber" value="{{input.charityNumber}}">
     <label for="name">Area of work (field of support)</label>
-    <input type="text" name="areaOfWork" value="">
+    <input type="text" name="areaOfWork" value="{{input.areaOfWork}}">
     <label for="name">Main contact name:</label>
-    <input type="text" name="contactName" value="">
+    <input type="text" name="contactName" value="{{input.contactName}}">
     <label for="name">Main contact surname:</label>
-    <input type="text" name="contactSurname" value="">
+    <input type="text" name="contactSurname" value="{{input.contactSurname}}">
     <label for="name">Contact number of main contact</label>
-    <input type="text" name="contactNumber" value="">
+    <input type="text" name="contactNumber" value="{{input.contactNumber}}">
     <label for="name">Address of charity</label>
-    <input type="text" name="charityAddress" value="">
+    <input type="text" name="charityAddress" value="{{input.charityAddress}}">
     <label for="name">Email address:</label>
-    <input type="text" name="contactEmail" value="">
+    <input type="text" name="contactEmail" value="{{input.contactEmail}}">
     <label for="name">Password:</label>
     <input type="password" name="password" value="">
     <label for="name">Confirm password:</label>
     <input type="password" name="confirmPassword" value="">
 
-
+      {{#if err}}
+         <p>{{err}}</p>
+       {{/if}}
     <button type="submit" name="submit">Signup</button>
   </form>
 </section>
