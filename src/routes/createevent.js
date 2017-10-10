@@ -12,8 +12,6 @@ module.exports = (req, res) => {
       }
     })
     .catch((err) => {
-      console.log(err)
-      console.log('Code: ', err.code)
       if (err.code) {
         res.render('addevent', {
           err: 'Sorry there was a problem with adding the event.',
