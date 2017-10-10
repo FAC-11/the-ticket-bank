@@ -17,6 +17,8 @@ module.exports = (req, res) => {
       res.render('newCharitySubmit')
     })
     .catch((err) => {
-      console.log(err)
+      res.render('newCharitySignup', {
+        err: err.message,
+        input: req.body })
     })
 }
