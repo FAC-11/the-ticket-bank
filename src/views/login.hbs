@@ -1,0 +1,17 @@
+<section id="login" class="">
+   <form class="" action="/login" method="post">
+     <header class="">Login</header>
+       <label>Email: </label>
+        {{#if errorEmail}}
+         <label>{{errorEmail}}</label>
+       {{/if}}
+       <input name="email" required="" type="text">
+       <label>Password: </label>
+           {{#if errorPassword}}
+         <label>{{errorPassword}}</label>
+       {{/if}}
+       <input name="password" placeholder="*********" required="" type="password">
+       <div class="validation" id="validation"></div>
+       <button type="submit" name="submit">Login</button>
+   </form>
+ </section>
