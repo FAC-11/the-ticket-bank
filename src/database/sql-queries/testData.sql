@@ -1,4 +1,5 @@
 BEGIN;
+
 INSERT INTO users (class, verified, charity_name, name, surname, email, email_verified, contact_phone, password, randomstring, admin, email_verify_string) VALUES
 ('admin', true, NULL, 'steve', 'r', 'steve@ticketsforgood.co.uk', false,  NULL, '$2a$10$hz44e6ydpC014IvqXR3kFesmH79ZAYWrfK0jotQBhqmpl3adcHiwS', 'tnTrLSUJ8R5J6sZEMGNP0ImgapDdtG', true, 'tnTrLSUJ8R5J6sZEMGNP0ImgapDdtH'),
 ('admin', true, NULL, 'facster', '11', 'fac@11.co.uk', false, NULL, '$2a$10$jkhDxAv58B42avyNx/z3xe6jdKD7KIQAo9ueGo60dtGeti8KxIdya', 'ohV0A3Yx0pSdY3hEe4QzrK07kCqsnT', false, 'tnTrLSUJ8R5J6sZEMGNP0ImgapDdtI'),
@@ -7,8 +8,9 @@ INSERT INTO users (class, verified, charity_name, name, surname, email, email_ve
 ('organiser', true, 'T4G', 'mary', 'doe', 'mary@t4g.co.uk', true, 0794464789, '$2a$10$UcORsLgChmFC8UPlqoOJluX8IU0yccwL.zfP2hrUPWwWCDiV8y9LW', 'WP3op4lFCh18Ve0uChzIiOX73rcQKX', false, 'tnTrLSUJ8R5J6sZEMGNP0ImgapDdtL');
 
 INSERT INTO events (title, short_desc, long_desc, venue, location, event_date, start_time, end_date, end_time, min_age, tkts_available, info, max_allocation, org_id) VALUES
-('Fac Welcome', 'Welcome event for facsters', 'Welcome event for all Fac memebers', 'Fac HQ','Palmers Road', '03/10/2017', '10:00 AM', '03/10/2017', '5:00 PM', 18, 5, 'Everyone welcome', 2, 4),
-('Fac End', 'Leaving event for facsters', 'Leaving event for all Fac memebers', 'Fac HQ','Palmers Road', '03/10/2017', '10:00 AM', '03/10/2017', '5:00 PM', 17, 3, 'Everyone welcome', 2, 2),
-('beiber', 'concert', 'Private concert for all Fac memebers', 'Fac HQ','Palmers Road', '03/10/2017', '10:00 AM', '03/10/2017', '5:00 PM', 17, 4, 'Everyone welcome', 5, 2),
-('Haloween', 'party', 'Party for all Fac memebers', 'Fac HQ','Palmers Road', '03/10/2017', '10:00 AM', '03/10/2017', '5:00 PM', 12, 3, 'Everyone welcome', 2, 3);
+('Fac Welcome', 'Welcome event for facsters', 'Welcome event for all Fac memebers', 'Fac HQ','Palmers Road', to_date('03-10-2017','DD-MM-YYYY'), '10:00 AM', '03/10/2017', '5:00 PM', 18, 5, 'Everyone welcome', 2, 4),
+('Fac End', 'Leaving event for facsters', 'Leaving event for all Fac memebers', 'Fac HQ','Palmers Road', to_date('23-10-2017','DD-MM-YYYY'), '10:00 AM', '03/10/2017', '5:00 PM', 17, 3, 'Everyone welcome', 2, 2),
+('beiber', 'concert', 'Private concert for all Fac memebers', 'Fac HQ','Palmers Road', to_date('03-10-2017','DD-MM-YYYY'), '10:00 AM', '03/10/2017', '5:00 PM', 17, 4, 'Everyone welcome', 5, 2),
+('Haloween', 'party', 'Party for all Fac memebers', 'Fac HQ','Palmers Road', to_date('03-10-2017','DD-MM-YYYY'), '10:00 AM', '03-10-2017', '5:00 PM', 12, 3, 'Everyone welcome', 2, 3);
+
 COMMIT;

@@ -9,4 +9,6 @@ const resetTestDb = () => {
     .catch(console.log)
 }
 
+resetTestDb()
+
 module.exports = resetTestDb
