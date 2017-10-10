@@ -1,17 +1,20 @@
-<section id="login" class="">
-   <form class="" action="/login" method="post">
-     <header class="">Login</header>
+{{>navbar}}
+<main class="">
+<section id="login" class="tc">
+   <form class="bg-tb dib pa4 pt1 mt4" action="/login" methd="post">
+     <h1>Login</h1>
        <label>Email: </label>
         {{#if errorEmail}}
          <label>{{errorEmail}}</label>
        {{/if}}
-       <input name="email" required="" type="text">
+       <input class="db f5 pa2 ma2" name="email" required="" type="text">
        <label>Password: </label>
            {{#if errorPassword}}
          <label>{{errorPassword}}</label>
        {{/if}}
-       <input name="password" placeholder="*********" required="" type="password">
+       <input class="db f5 pa2 ma2" name="password" placeholder="*********" required="" type="password">
        <div class="validation" id="validation"></div>
-       <button type="submit" name="submit">Login</button>
+       <button class="bg-black white f5 br1 pt1 pb1 pr3 pl3 bn" type="submit" name="submit">Login</button>
    </form>
  </section>
+ </main>

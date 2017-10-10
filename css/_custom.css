@@ -42,7 +42,10 @@ main {
   margin-top: 69.6px;
 }
 
-/* EVENT CARD */
-.event {
+/* CUSTOM COLOURS */
+.bg-tb {
   background-color: #EEE8E8;
 }
+
+/* CUSTOM TACHYONS */
+
