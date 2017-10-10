@@ -105,5 +105,8 @@ coverage/
 ./package-lock.json
 ./config.env
 
+# codecov
+coverage.lcov
+
 # Ignore style.min.css
 public/style.min.css

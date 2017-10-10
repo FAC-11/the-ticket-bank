@@ -4,4 +4,6 @@ module.exports = {
   getEvents: './sql-queries/getEvents.sql',
   getSingleEvent: './sql-queries/getSingleEvent.sql',
   createevent: './sql-queries/createevent.sql'
+  getHashedPassword: './sql-queries/getHashedPassword.sql',
+  getUserDetails: './sql-queries/getUserDetails.sql'
 }
