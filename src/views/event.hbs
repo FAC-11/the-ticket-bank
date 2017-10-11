@@ -1,23 +1,27 @@
 {{>navbar}}
 <main class="dib w-100">
 
-<h1 class="hot-pink f3 tc">{{uppercase title}}</h1>
+<h1 class="hot-pink f3 tc">{{uppercase event.title}}</h1>
   <section class="w-80 center">
       <ul class="list pl0">
-        <li class="b pb3 f3">{{short_desc}}</li>
-        <li class="pb2"><span class="b">Location:</span> {{venue}}, {{location}}</li>
-        <li class="pb2"><span class="b">Date:</span> {{event_date}}</li>
-        <li class="pb2"><span class="b">Start Time:</span> {{start_time}}</li>
-        <li class="pb2"><span class="b">End Time:</span> {{end_time}}</li>
-        <li class="pb2"><span class="b">Available Tickets:</span> {{tkts_available}}</li>
-        <li class="pb2"><span class="b">Maximum Ticket Allocation:</span> {{max_allocation}}</li>
-        <li class="pb2"><span class="b">Minimum Age:</span> {{min_age}}</li>
-        <li class="pb2"><span class="b">Additional information:</span> {{info}}</li>
+        <li class="b pb3 f3">{{event.short_desc}}</li>
+        <li class="pb2"><span class="b">Location:</span> {{event.venue}}, {{event.location}}</li>
+        <li class="pb2"><span class="b">Date:</span> {{event.event_date}}</li>
+        <li class="pb2"><span class="b">Start Time:</span> {{event.start_time}}</li>
+        <li class="pb2"><span class="b">End Time:</span> {{event.end_time}}</li>
+        <li class="pb2"><span class="b">Available Tickets:</span> {{event.tkts_available}}</li>
+        <li class="pb2"><span class="b">Maximum Ticket Allocation:</span> {{event.max_allocation}}</li>
+        <li class="pb2"><span class="b">Minimum Age:</span> {{event.min_age}}</li>
+        <li class="pb2"><span class="b">Additional information:</span> {{event.info}}</li>
       </ul>
   </section>
 
   <section class="w-80 ba center">
-    <p class="pa1">{{long_desc}}</p>
+    <p class="pa1">{{event.long_desc}}</p>
   </section>
+{{log session}}
 
+{{#if session.userId}}
+<a href='/event/{{event.title}}/applyfortickets' class="bg-black white f5 br1 pt1 pb1 pr3 pl3 mt2 bn" type="submit" name="submit">Apply for tickets</a>
+{{/if }}
 </main>

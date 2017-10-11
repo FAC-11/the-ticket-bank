@@ -26,7 +26,7 @@ router.get('/addevent', addevent)
 router.post('/addevent', createevent)
 router.get('/rejectcharitysignup/:userinfo', rejectcharitysignup)
 router.get('/verifycharityemail/:userinfo', verifycharityemail)
-router.get('/applyfortickets', applyForTickets)
+router.get('/event/:eventTitle/applyfortickets', applyForTickets)
 router.use(error.client)
 router.use(error.server)
 
