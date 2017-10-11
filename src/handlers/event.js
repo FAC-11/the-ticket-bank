@@ -1,8 +1,8 @@
-const queryDb = require('../database/queryDb')
-const sql = require('../database/index')
+const db = require('../database/dbConnection')
+const sql = require('../database/index-sql')
 
 const getSingleEvent = (requestParams) => {
-  return queryDb(sql.getSingleEvent, [requestParams.eventTitle])
+  return db.query(sql.getSingleEvent, [requestParams.eventTitle])
     .then(event => {
       return event[0]
     })

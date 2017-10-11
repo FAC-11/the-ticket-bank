@@ -1,10 +1,9 @@
 const queryDb = require('./queryDb')
-const sql = require('./index')
 
 const resetTestDb = () => {
-  return queryDb(sql.dbSchema)
+  return queryDb('./sql-queries/dbSchema.sql')
     .then(res => {
-      return queryDb(sql.testData)
+      return queryDb('./sql-queries/testData.sql')
     })
     .catch(console.log)
 }
