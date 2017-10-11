@@ -39,15 +39,14 @@ CREATE TABLE IF NOT EXISTS participants (
   id            SERIAL        PRIMARY KEY,
   event_id      INTEGER       REFERENCES events(id) ON UPDATE cascade DEFAULT 1,
   org_id        INTEGER       DEFAULT NULL,
-  charity_id    INTEGER       DEFAULT NULL,
-  name          VARCHAR(30)   DEFAULT NULL,
-  surname       VARCHAR(30)   DEFAULT NULL,
+  charity_id    INTEGER       REFERENCES users(id) ON UPDATE cascade DEFAULT NULL,
+  full_name     VARCHAR(30)   DEFAULT NULL,
   age           INTEGER       DEFAULT NULL,
   email         VARCHAR(30)   DEFAULT NULL,
   contact_phone INTEGER       DEFAULT NULL,
-  postcode      VARCHAR(8)    DEFAULT NULL,
+  location      VARCHAR(30)   DEFAULT NULL,
   ethnicity     VARCHAR(15)   DEFAULT NULL,
-  info          VARCHAR(400)  DEFAULT NULL
+  add_info      VARCHAR(400)  DEFAULT NULL
 );
 
 COMMIT;
