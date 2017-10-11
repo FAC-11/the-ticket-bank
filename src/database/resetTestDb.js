@@ -1,11 +1,12 @@
-const queryDb = require('./queryDb')
+const db = require('./dbConnection')
+const { dbSchema, testData } = require('./sql-files/sqlFilesIndex')
 
 const resetTestDb = () => {
-  return queryDb('./sql-queries/dbSchema.sql')
+  return db.query(dbSchema)
     .then(res => {
-      return queryDb('./sql-queries/testData.sql')
+      return db.query(testData)
     })
-    .catch(console.log)
+    .catch(console.error)
 }
 
 module.exports = resetTestDb
