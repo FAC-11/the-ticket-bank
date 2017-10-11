@@ -1,0 +1,40 @@
+{{>navbar}}
+<main class="dib w-100">
+  <section class="w-80 center">
+    <form class="" action="/addevent" method="post">
+      <header>Create Event</header>
+      <label for="title">Title</label>
+      <input type="text" name="title" value="{{input.title}}" required>
+      <label for="shortdesc">Short description</label>
+      <input type="text" name="shortdesc" value="{{input.shortdesc}}">
+      <label for="longdesc">Long description</label>
+      <input type="text" name="longdesc" value="{{input.longdesc}}">
+      <label for="venue">Venue</label>
+      <input type="text" name="venue" value="{{input.venue}}">
+      <label for="location">Location</label>
+      <input type="text" name="location" value="{{input.location}}">
+      <label for="startdate">Start date/time</label>
+      <input type="text" name="startdatetime" value="{{input.startdatetime}}" id="startdatetime" readonly="readonly">
+      <img src="images2/cal.gif" onclick="javascript:NewCssCal ('startdatetime','ddMMyyyy','arrow',true,'12','','future')" style="cursor:pointer" />
+      <label for="enddatetime">End date/time</label>
+      <input type="text" name="enddatetime" value="{{input.enddatetime}}" id="enddatetime" readonly="readonly">
+      <img src="images2/cal.gif" onclick="javascript:NewCssCal ('enddatetime','ddMMyyyy','arrow',true,'12','','future')" style="cursor:pointer" />
+      <label for="minage">Minimum age</label>
+      <input type="text" name="minage" value="{{input.minage}}">
+      <label for="ticketsavailable">Number of tickets/ tickets available</label>
+      <input type="number" step="1" name="ticketsavailable" value="{{input.ticketsavailable}}">
+      <label for="ticketname">Ticket name</label>
+      <input type="text" name="ticketname" value="{{input.ticketname}}">
+      <label for="additionalinfo">Additional info</label>
+      <input type="text" name="additionalinfo" value="{{input.additionalinfo}}">
+      <label for="maxallocaiton">Maximum allocation per charity</label>
+      <input type="text" name="maxallocation" value="{{input.maxallocation}}">
+      {{#if err}}
+        <p>{{err}}</p>
+      {{/if}}
+      <input type="reset">
+      <input type="submit" value="Create Event">
+    </form>
+  </section>
+  <script src="datetimepicker_css.js"></script>
+</main>
