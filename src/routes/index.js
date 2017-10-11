@@ -9,6 +9,8 @@ const newcharitysignup = require('./newCharitySignup')
 const newcharitysubmit = require('./newCharitySubmit')
 const approvecharitysignup = require('./approveCharitySignup')
 const rejectcharitysignup = require('./rejectCharitySignup')
+const addevent = require('./addevent')
+const createevent = require('./createevent')
 const verifycharityemail = require('./verifyCharityEmail')
 
 router.get('/', home)
@@ -18,8 +20,12 @@ router.get('/event/:eventTitle', event)
 router.get('/sign-up', newcharitysignup)
 router.post('/newuser', newcharitysubmit)
 router.get('/approvecharitysignup/:userinfo', approvecharitysignup)
+router.get('/rejectcharitysignup/:userinfo', rejectcharitysignup) // should userinfo be named randomstring?
+router.get('/addevent', addevent)
+router.post('/addevent', createevent)
 router.get('/rejectcharitysignup/:userinfo', rejectcharitysignup)
 router.get('/verifycharityemail/:userinfo', verifycharityemail)
+
 router.use(error.client)
 router.use(error.server)
 
