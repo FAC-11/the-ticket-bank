@@ -1,9 +1,9 @@
 const bcrypt = require('bcrypt')
-const db = require('../database/dbConnection')
-const sql = require('../database/index-sql')
+const getHashedPasswordDb = require('../database/sql-queries/getHashedPassword')
+const getUserDetailsDb = require('../database/sql-queries/getUserDetails')
 
 const verifyLogin = (req, res) => {
-  return db.query(sql.getHashedPassword, [req.body.email])
+  return getHashedPasswordDb(req.body)
     .then(hashedPassword => {
       if (!hashedPassword.length) {
         res.status(400).render('login', {
@@ -13,7 +13,7 @@ const verifyLogin = (req, res) => {
       return bcrypt.compare(req.body.password, hashedPassword[0].password)
     })
     .then(bool => {
-      if (bool) return db.query(sql.getUserDetails, [req.body.email])
+      if (bool) return getUserDetailsDb(req.body)
       else {
         res.status(400).render('login', {
           errorPassword: 'Wrong Password'

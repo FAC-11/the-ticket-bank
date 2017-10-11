@@ -1,8 +1,7 @@
-const db = require('../database/dbConnection')
-const sql = require('../database/index-sql')
+const getEventsDb = require('../database/sql-queries/getEvents')
 
 const getEvents = () => {
-  return db.query(sql.getEvents)
+  return getEventsDb()
     .then(events => {
       return JSON.parse(JSON.stringify(events))
     })
