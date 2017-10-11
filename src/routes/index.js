@@ -12,6 +12,7 @@ const rejectcharitysignup = require('./rejectCharitySignup')
 const addevent = require('./addevent')
 const createevent = require('./createevent')
 const verifycharityemail = require('./verifyCharityEmail')
+const applyForTickets = require('./applyForTickets')
 
 router.get('/', home)
 router.get('/login', loginPage)
@@ -25,7 +26,7 @@ router.get('/addevent', addevent)
 router.post('/addevent', createevent)
 router.get('/rejectcharitysignup/:userinfo', rejectcharitysignup)
 router.get('/verifycharityemail/:userinfo', verifycharityemail)
-
+router.get('/applyfortickets', applyForTickets)
 router.use(error.client)
 router.use(error.server)
 

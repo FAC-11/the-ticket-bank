@@ -1,0 +1,80 @@
+{{>navbar}}
+<main>
+  <section class="tc">
+    {{#if err}}
+    <p class="f3 red pt4">{{err}}</p>
+    {{/if}}
+    <form class="bg-tb dib pa4 pt1 mt4 mb4" action="/tickets" method="post">
+      <h1>Apply for Tickets</h1>
+
+      <p>The maximum number of tickets you can apply for is {{max_allocation}}</p>
+
+
+      <label class="f5 tc" for="name">Charity Name:</label>
+      <input class="db center f5 pa2 ma2" type="text" name="charityName" value="" required>
+      
+      {{#each permittedTicket}}
+      <section class = 'center w-80 mt2 ba bg-tb'>
+      <label class="f5" for="name">Full Name of participant:</label>
+      <input class="db center f5 pa2 ma2" type="text" name="namesOfParticipant" value="" required>
+      <label class="f5" for="name">Age of participant:</label>
+      <input class="db center f5 pa2 ma2" type="text" name="ageOfParticipant" value="" required>
+      <label class="f5" for="name">Telephone:</label>
+      <input class="db center f5 pa2 ma2" type="text" name="telephoneOfParticipant" value="">
+      <label class="f5" for="name">Email:</label>
+      <input class="db center f5 pa2 ma2" type="text" name="emailOfParticipant" value="" required>
+      <label class="f5" for="name">Location:</label>
+      <input class="db center f5 pa2 ma2" type="text" name="locationOfParticipant" value="" required>
+
+      <fieldset class="bn">
+        <legend>Ethnicity:</legend>
+        <select id="ethnicity" name="ethnicity">
+    <option value="" selected="selected" disabled="disabled">-- select one --</option>
+    <optgroup label="White">
+      <option value="White English">English</option>
+      <option value="White Welsh">Welsh</option>
+      <option value="White Scottish">Scottish</option>
+      <option value="White Northern Irish">Northern Irish</option>
+      <option value="White Irish">Irish</option>
+      <option value="White Gypsy or Irish Traveller">Gypsy or Irish Traveller</option>
+      <option value="White Other">Any other White background</option>
+    </optgroup>
+    <optgroup label="Mixed or Multiple ethnic groups">
+      <option value="Mixed White and Black Caribbean">White and Black Caribbean</option>
+      <option value="Mixed White and Black African">White and Black African</option>
+      <option value="Mixed White Other">Any other Mixed or Multiple background</option>
+    </optgroup>
+    <optgroup label="Asian">
+      <option value="Asian Indian">Indian</option>
+      <option value="Asian Pakistani">Pakistani</option>
+      <option value="Asian Bangladeshi">Bangladeshi</option>
+      <option value="Asian Chinese">Chinese</option>
+      <option value="Asian Other">Any other Asian background</option>
+    </optgroup>
+    <optgroup label="Black">
+      <option value="Black African">African</option>
+      <option value="Black African American">African American</option>
+      <option value="Black Caribbean">Caribbean</option>
+      <option value="Black Other">Any other Black background</option>
+    </optgroup>
+    <optgroup label="Other ethnic groups">
+      <option value="Arab">Arab</option>
+      <option value="Hispanic">Hispanic</option>
+      <option value="Latino">Latino</option>
+      <option value="Native American">Native American</option>
+      <option value="Pacific Islander">Pacific Islander</option>
+      <option value="Other">Any other ethnic group</option>
+    </optgroup>
+  </select>
+      </fieldset>
+      </section>
+      {{/each}}
+
+
+      <label class="f5" for="name">Additional Info:</label>
+      <input class="center db f5 pa2 ma2" type="text" name="additionalInfo" value="">
+
+      <button class="bg-black white f5 br1 pt1 pb1 pr3 pl3 mt2 bn" type="submit" name="submit">Sign Up</button>
+    </form>
+  </section>
+</main>
