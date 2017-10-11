@@ -1,0 +1,1 @@
+const { returnSingleEmail, returnListOfEmails, sendNewEventEmails } = require('../src/models/emailNewEvent')
