@@ -27,7 +27,7 @@ const returnSingleEmail = (emailObj, eventObj) => {
 
 const returnListOfEmails = (arr, eventObj) => {
   return arr.map(emailObj => {
-    returnSingleEmail(emailObj, eventObj)
+    return returnSingleEmail(emailObj, eventObj)
   })
 }
 
