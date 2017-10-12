@@ -1,7 +1,7 @@
 BEGIN;
 
 INSERT INTO users (class, verified, charity_name, name, surname, email, email_verified, contact_phone, password, randomstring, admin, email_verify_string) VALUES
-('admin', true, NULL, 'steve', 'r', 'steve@ticketsforgood.co.uk', false,  NULL, '$2a$10$hz44e6ydpC014IvqXR3kFesmH79ZAYWrfK0jotQBhqmpl3adcHiwS', 'tnTrLSUJ8R5J6sZEMGNP0ImgapDdtG', true, 'tnTrLSUJ8R5J6sZEMGNP0ImgapDdtH'),
+('admin', true, NULL, 'steve', 'r', 'at1mp@libero.it', false,  NULL, '$2a$10$hz44e6ydpC014IvqXR3kFesmH79ZAYWrfK0jotQBhqmpl3adcHiwS', 'tnTrLSUJ8R5J6sZEMGNP0ImgapDdtG', true, 'tnTrLSUJ8R5J6sZEMGNP0ImgapDdtH'),
 ('admin', true, 'founders', 'facster', '11', 'fac@11.co.uk', false, NULL, '$2a$10$jkhDxAv58B42avyNx/z3xe6jdKD7KIQAo9ueGo60dtGeti8KxIdya', 'ohV0A3Yx0pSdY3hEe4QzrK07kCqsnT', false, 'tnTrLSUJ8R5J6sZEMGNP0ImgapDdtI'),
 ('charity', false, 'T4G', 'john', 'doe', 'john@t4g.co.uk', true, 0794464479, '$2a$10$UcORsLgChmFC8UPlqoOJluX8IU0yccwL.zfP2hrUPWwWCDiV8y9LW', 'cZQMhZB90DNbeSRf8jHntp5JMELSLB', false, 'tnTrLSUJ8R5J6sZEMGNP0ImgapDdtJ'),
 ('charity', true, 'FAC', 'dan', 'sofer', 'dan@fac.co.uk', true, 0794464879, '$2a$10$UcORsLgChmFC8UPlqoOJluX8IU0yccwL.zfP2hrUPWwWCDiV8y9LW', 'MTJu4TZnhldHwbxMu94oHZku29L4E1', false, 'tnTrLSUJ8R5J6sZEMGNP0ImgapDdtK'),
