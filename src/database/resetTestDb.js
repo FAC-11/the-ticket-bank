@@ -8,5 +8,5 @@ const resetTestDb = () => {
     })
     .catch(console.error)
 }
-
+resetTestDb()
 module.exports = resetTestDb

@@ -13,4 +13,6 @@ INSERT INTO events (title, short_desc, long_desc, venue, location, event_date, s
 ('beiber', 'concert', 'Private concert for all Fac memebers', 'Fac HQ','Palmers Road', to_date('03-10-2017','DD-MM-YYYY'), '10:00 AM', '03/10/2017', '5:00 PM', 17, 4, 'Everyone welcome', 5, 2),
 ('Haloween', 'party', 'Party for all Fac memebers', 'Fac HQ','Palmers Road', to_date('03-10-2017','DD-MM-YYYY'), '10:00 AM', '03-10-2017', '5:00 PM', 12, 3, 'Everyone welcome', 2, 3);
 
+INSERT INTO participants (event_id, org_id, charity_id, full_name, age, email, contact_phone, location, ethnicity, add_info) VALUES (1, 3, 2, 'Test Participant 1', '18', 'test1@test.com', 0794464479, 'London', 'White', 'Wheelchair user'), (1, 3, 2, 'Test Participant 2', '20', 'test2@test.com', 0794464479, 'Bristol', 'Asian', NULL), (1, 3, 2, 'Test Participant 3', '40', 'test3@test.com', 0794464479, 'Northants', 'Black', NULL), (2, 4, 3, 'Test Participant 4', '8', 'test4@test.com', 0794464479, 'Northants', 'Black', NULL); 
+
 COMMIT;
