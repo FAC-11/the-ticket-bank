@@ -43,6 +43,5 @@ const sendCharityApplyTicketSuccess = (participantsArr) => {
 
 module.exports = {
   returnSingleEmail,
-  returnListOfEmails,
-  sendNewEventEmails
+  sendCharityApplyTicketSuccess
 }
