@@ -3,6 +3,7 @@ const resetTestDb = require('../src/database/resetTestDb')
 const getCharityEmails = require('../src/database/sql-queries/getCharityEmails')
 const getAvailableAllocatedTickets = require('../src/database/sql-queries/getAvailableAllocatedTickets')
 const getNamesAlreadyAllocated = require('../src/database/sql-queries/getNamesAlreadyAllocated')
+const addParticipant = require('../src/database/sql-queries/addParticipant')
 
 tape('test getCharityEmails from db', t => {
   const expected = [ { email: 'steve@ticketsforgood.co.uk' },
@@ -45,4 +46,30 @@ tape('test getNameAlreadyAllocated to event by a given charity from db', t => {
       t.end()
     })
     .catch(console.error)
+})
+
+tape('test getNameAlreadyAllocated to event by a given charity from db', t => {
+  const participantObj = {
+    nameOfCharity: 'T4G',
+    eventTitle: 'Fac Welcome',
+    namesOfParticipant: 'test participant',
+    ageOfParticipant: '33',
+    telephoneOfParticipant: '07866661',
+    emailOfParticipant: 'testpart@test.com',
+    locationOfParticipant: 'Sheffield',
+    ethnicity: 'White English',
+    additionalInfo: 'smoker'
+  }
+  resetTestDb()
+    .then(() => {
+      return addParticipant(participantObj)
+    })
+    .then(res => {
+      t.equal(res.length, 0, 'Return from db insert should be empty array')
+      t.end()
+    })
+    .catch(err => {
+      t.error(err)
+      t.end()
+    })
 })

@@ -15,8 +15,8 @@ const expected = {
   min_age: 18,
   tkts_available: 5,
   info: 'Everyone welcome',
-  max_allocation: 2,
-  org_id: 4 }
+  max_allocation: 2
+}
 
 tape('Test handlers/event', (t) => {
   resetTestDb()
