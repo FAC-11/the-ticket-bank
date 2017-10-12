@@ -21,8 +21,10 @@ const verifyLogin = (req, res) => {
       }
     })
     .then(userDetails => {
+      console.log('userDetails: ', userDetails)
       req.session.userId = userDetails[0].id
       req.session.isAdmin = userDetails[0].admin
+      req.session.charityName = userDetails[0].charity_name
       res.redirect('/')
     })
 }
