@@ -38,14 +38,12 @@ CREATE TABLE IF NOT EXISTS events (
   info          VARCHAR(200)  DEFAULT NULL,     --additional info
   max_allocation INTEGER      DEFAULT 1,        --maximum ticket allocation per charity
   external_link VARCHAR(200)  DEFAULT NULL,
-  image_url     VARCHAR(200)  DEFAULT NULL,
-  org_id        INTEGER       REFERENCES users(id) ON UPDATE cascade DEFAULT 2
+  image_url     VARCHAR(200)  DEFAULT NULL
 );
 
 CREATE TABLE IF NOT EXISTS participants (
   id            SERIAL        PRIMARY KEY,
   event_id      INTEGER       REFERENCES events(id) ON UPDATE cascade DEFAULT 1,
-  org_id        INTEGER       DEFAULT NULL,
   charity_id    INTEGER       REFERENCES users(id) ON UPDATE cascade DEFAULT NULL,
   full_name     VARCHAR(30)   DEFAULT NULL,
   age           INTEGER       DEFAULT NULL,
