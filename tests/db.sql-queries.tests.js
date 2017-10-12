@@ -4,6 +4,7 @@ const getCharityEmails = require('../src/database/sql-queries/getCharityEmails')
 const getAvailableAllocatedTickets = require('../src/database/sql-queries/getAvailableAllocatedTickets')
 const getNamesAlreadyAllocated = require('../src/database/sql-queries/getNamesAlreadyAllocated')
 const addParticipant = require('../src/database/sql-queries/addParticipant')
+const decrementAvailableTickets = require('../src/database/sql-queries/decrementAvailableTickets') 
 
 tape('test getCharityEmails from db', t => {
   const expected = [ { email: 'steve@ticketsforgood.co.uk' },
@@ -66,6 +67,24 @@ tape('test getNameAlreadyAllocated to event by a given charity from db', t => {
     })
     .then(res => {
       t.equal(res.length, 0, 'Return from db insert should be empty array')
+      t.end()
+    })
+    .catch(err => {
+      t.error(err)
+      t.end()
+    })
+})
+
+tape('test getNameAlreadyAllocated to event by a given charity from db', t => {
+  resetTestDb()
+    .then(() => {
+      return decrementAvailableTickets('Fac Welcome')
+    })
+    .then(() => {
+      return getAvailableAllocatedTickets('Fac Welcome')
+    })
+    .then(resObjArr => {
+      t.equal(resObjArr[0].tkts_available, 4, 'Tickets available for event should have been decremented')
       t.end()
     })
     .catch(err => {
