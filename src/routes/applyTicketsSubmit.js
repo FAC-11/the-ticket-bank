@@ -1,10 +1,14 @@
 const applyTicket = require('../handlers/applyTicket')
 const validateTicketForm = require('../models/validateTicketForm.js')
 const extractTicketParticipants = require('../models/extractTicketParticipants')
+const { sendCharityApplyTicketSuccess } = require('../models/emailCharityApplyTicketSuccess')
+const { emailAdminApplyTicketSuccess } = require('../models/emailAdminApplyTicketSuccess')
 
 module.exports = (req, res) => {
-
-  extractTicketParticipants(req)
+  const participantArr = extractTicketParticipants(req)
+  sendCharityApplyTicketSuccess(participantArr)
+  emailAdminApplyTicketSuccess(participantArr)
+}
   // validateTicketForm(req)
   // .then(()=> {
   //   for (req.body.numberoftickets)
@@ -31,4 +35,4 @@ module.exports = (req, res) => {
 //         })
 //       }
 //     })
-}
+// }

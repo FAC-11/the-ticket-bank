@@ -8,6 +8,7 @@ const returnSingleEmail = (eventTitle, charityEmail, numberOfTickets) => {
     'Subject': `${eventTitle} Ticket Application Successful`,
     'TextBody': `
     Hi,
+    
     You have successfully applied for ${numberOfTickets} tickets for ${eventTitle}.
     Steve from Tickets for good will be in touch with information about your tickets.
 
@@ -18,9 +19,11 @@ const returnSingleEmail = (eventTitle, charityEmail, numberOfTickets) => {
 }
 
 const sendCharityApplyTicketSuccess = (participantsArr) => {
-  const { nameOfCharity, eventTitle } = participantsArr[0]
-  return fetchEmailFromCharityName(nameOfCharity)
+  const { charityName, eventTitle } = participantsArr[0]
+  console.log(charityName, eventTitle)
+  return fetchEmailFromCharityName(charityName)
     .then(emailObjArr => {
+      console.log(emailObjArr)
       const email = returnSingleEmail(eventTitle, emailObjArr[0].email, participantsArr.length)
       return new Promise((resolve, reject) => {
         emailClient.sendEmail(email, (err, res) => {
