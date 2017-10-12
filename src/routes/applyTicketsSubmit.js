@@ -5,7 +5,6 @@ const extractTicketParticipants = require('../models/extractTicketParticipants')
 module.exports = (req, res) => {
 
   extractTicketParticipants(req)
-
   // validateTicketForm(req)
   // .then(()=> {
   //   for (req.body.numberoftickets)
