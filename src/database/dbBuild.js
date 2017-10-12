@@ -1,5 +1,6 @@
-const queryDb = require('./queryDb')
+const db = require('./dbConnection')
+const { dbSchema } = require('./sql-files/sqlFilesIndex')
 
-queryDb('./sql-queries/dbSchema.sql')
+db.query(dbSchema)
   .then(console.log)
-  .catch(console.log)
+  .catch(console.error)
