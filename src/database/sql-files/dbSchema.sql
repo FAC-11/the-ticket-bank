@@ -4,20 +4,27 @@ DROP TABLE IF EXISTS users, events, participants cascade;
 
 CREATE TABLE IF NOT EXISTS users (
   id            SERIAL        PRIMARY KEY,
-  class         VARCHAR(15)   NOT NULL,
-  verified      VARCHAR(10)   DEFAULT BOOLEAN,
+  class         VARCHAR(15)   DEFAULT NULL,
+  verified      VARCHAR(10)   DEFAULT 'pending',
   charity_name  VARCHAR(20)   DEFAULT NULL,
+  charity_number VARCHAR(15)  DEFAULT NULL,
+  area_of_work  VARCHAR(40)   DEFAULT NULL,
+  charity_address VARCHAR(40) DEFAULT NULL,
   name          VARCHAR(30)   DEFAULT NULL,
   surname       VARCHAR(30)   DEFAULT NULL,
   email         VARCHAR(30)   DEFAULT NULL UNIQUE,
+  email_verified BOOLEAN      DEFAULT FALSE,
   contact_phone INTEGER       DEFAULT NULL,
-  password      VARCHAR(70)   NOT NULL
+  password      VARCHAR(70)   NOT NULL,
+  randomstring  VARCHAR(70)   NOT NULL UNIQUE,
+  admin         BOOLEAN       DEFAULT FALSE,
+  email_verify_string  VARCHAR(70)   NOT NULL UNIQUE
 );
 
 CREATE TABLE IF NOT EXISTS events (
   id            SERIAL        PRIMARY KEY,
   title         VARCHAR(100)  NOT NULL,
-  short_desc    VARCHAR(200)  DEFAULT NULL,     --short escription of event
+  short_desc    VARCHAR(200)  DEFAULT NULL,     --short description of event
   long_desc     VARCHAR(2000) DEFAULT NULL,     --long dscription of event
   venue         VARCHAR(100)  DEFAULT NULL,
   location      VARCHAR(100)  DEFAULT NULL,

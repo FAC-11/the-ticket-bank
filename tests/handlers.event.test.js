@@ -1,7 +1,5 @@
 const tape = require('tape')
 const { getSingleEvent } = require('../src/handlers/event.js')
-const queryDb = require('../src/database/queryDb.js')
-const sql = require('../src/database/index.js')
 const resetTestDb = require('../src/database/resetTestDb')
 
 const expected = {

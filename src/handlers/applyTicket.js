@@ -1,5 +1,5 @@
 const queryDb = require('../database/queryDb')
-const { applyTicket } = require('../database/index')
+const { applyTicket } = require('../database/sql-queries/applyTicket.sql')
 
 module.exports = (body) => {
   let { charityName, namesOfParticipant, ageOfParticipant, telephoneOfParticipant, emailOfParticipant, locationOfParticipant, ethnicity, additionalInfo } = body

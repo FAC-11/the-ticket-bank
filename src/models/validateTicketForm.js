@@ -1,10 +1,10 @@
-// const validate = (req) => {
-//   return new Promise((resolve, reject) => {
-//     if (req.body.namesOfParticipant_{{@index}}.length < 2) reject(new Error('Name is too short'))
-//     else if (req.body.namesOfParticipant_{{@index}}.length === 0) reject(new Error('Name can\'t be empty'))
-//     else if (req.body.ageOfParticipant_{{@index}}.length === 0) reject(new Error('Age can\'t be empty'))
-//     else if (req.body.charityNumber.length < 6 || req.body.charityNumber.length > 10) reject(new Error('Charity number is invalid'))
-//     else if (req.body.contactName.match(/[0-9]/i)) reject(new Error('Name cannot contain numbers'))
+const validate = (req) => {
+  return new Promise((resolve, reject) => {
+    if (req.body.namesOfParticipant_{{@index}}.length < 2) reject(new Error('Name is too short'))
+    else if (req.body.namesOfParticipant_{{@index}}.length === 0) reject(new Error('Name can\'t be empty'))
+    else if (req.body.ageOfParticipant_{{@index}}.length === 0) reject(new Error('Age can\'t be empty'))
+    else if (req.body.charityNumber.length < 6 || req.body.charityNumber.length > 10) reject(new Error('Charity number is invalid'))
+    else if (req.body.contactName.match(/[0-9]/i)) reject(new Error('Name cannot contain numbers'))
 //     else if (req.body.contactName.length === 0) reject(new Error('Contact Name can\'t be empty'))
 //     else if (req.body.contactName.length < 2) reject(new Error('Contact name is too short'))
 //     else if (req.body.contactSurname.match(/[0-9]/i)) reject(new Error('Contact Surname cannot contain numbers'))
