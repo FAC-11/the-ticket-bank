@@ -4,7 +4,7 @@ const app = require('../src/app')
 const resetTestDb = require('../src/database/resetTestDb')
 
 const validLogin = {
-  email: 'fac@11.co.uk',
+  email: 'master.email@libero.it',
   password: 'aaaaaaaa'
 }
 
@@ -18,7 +18,7 @@ const invalidPassword = {
   password: 'bbb'
 }
 
-tape('Test login post route and handlers', (t) => {
+tape('Test login post route and handlers: valid login', (t) => {
   resetTestDb()
     .then(() => {
       supertest(app)
@@ -33,7 +33,7 @@ tape('Test login post route and handlers', (t) => {
     })
 })
 
-tape('Test login post route and handlers', (t) => {
+tape('Test login post route and handlers: invalid email', (t) => {
   resetTestDb()
     .then(() => {
       supertest(app)
@@ -48,7 +48,7 @@ tape('Test login post route and handlers', (t) => {
     })
 })
 
-tape('Test login post route and handlers', (t) => {
+tape('Test login post route and handlers: invalid password', (t) => {
   resetTestDb()
     .then(() => {
       supertest(app)
