@@ -38,7 +38,7 @@ tape('test getNameAlreadyAllocated to event by a given charity from db', t => {
   const expected = [ { full_name: 'Test Participant 1' }, { full_name: 'Test Participant 2' } ]
   resetTestDb()
     .then(() => {
-      return getNamesAlreadyAllocated('Fac Welcome', '2')
+      return getNamesAlreadyAllocated('Fac Welcome', 'charity 1')
     })
     .then(resObjArr => {
       t.deepEqual(resObjArr, expected, 'All participants of given charity already registered for given event should be returned')
