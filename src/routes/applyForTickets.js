@@ -12,6 +12,7 @@ module.exports = (req, res, next) => {
         }
         console.log('reqparticipants', typeof req.body.numberOfParticipants)
         res.render('applyForTickets', {
+          eventTitle: event.title,
           max_allocation: event.max_allocation,
           permittedTicket: new Array(parseInt(req.body.numberOfParticipants)).fill(1)
         })
@@ -19,4 +20,3 @@ module.exports = (req, res, next) => {
     })
     .catch(console.error)
 }
-

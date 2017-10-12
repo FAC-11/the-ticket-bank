@@ -4,32 +4,35 @@
     {{#if err}}
     <p class="f3 red pt4">{{err}}</p>
     {{/if}}
-    <form class="bg-tb dib pa4 pt1 mt4 mb4" action="/tickets" method="post">
+    <form class="bg-tb dib pa4 pt1 mt4 mb4" action="/event/{{eventTitle}}/tickets" method="post">
       <h1>Apply for Tickets</h1>
 
       <p>The maximum number of tickets you can apply for is {{max_allocation}}</p>
-      
+
       <p>You are about to apply for {{permittedTicket.length}} tickets</p>
 
-      <label class="f5 tc" for="name">Charity Name:</label>
+      <input name="numberoftickets" value="{{permittedTicket.length}}" hidden="true" /> 
+
+      <label class="f5 tc" for="charityName">Charity Name:</label>
       <input class="db center f5 pa2 ma2" type="text" name="charityName" value="" required>
-      
+
       {{#each permittedTicket}}
+
       <section class = 'center w-80 mt2 ba bg-tb'>
-      <label class="f5" for="name">Full Name of participant:</label>
-      <input class="db center f5 pa2 ma2" type="text" name="namesOfParticipant" value="" required>
-      <label class="f5" for="name">Age of participant:</label>
-      <input class="db center f5 pa2 ma2" type="text" name="ageOfParticipant" value="" required>
-      <label class="f5" for="name">Telephone:</label>
-      <input class="db center f5 pa2 ma2" type="text" name="telephoneOfParticipant" value="">
-      <label class="f5" for="name">Email:</label>
-      <input class="db center f5 pa2 ma2" type="text" name="emailOfParticipant" value="" required>
-      <label class="f5" for="name">Location:</label>
-      <input class="db center f5 pa2 ma2" type="text" name="locationOfParticipant" value="" required>
+      <label class="f5" for="namesOfParticipant_{{@index}}">Full Name of participant:</label>
+      <input class="db center f5 pa2 ma2" type="text" name="namesOfParticipant_{{@index}}" value="" required>
+      <label class="f5" for="ageOfParticipant_{{@index}}">Age of participant:</label>
+      <input class="db center f5 pa2 ma2" type="number" min="0" name="ageOfParticipant_{{@index}}" value="" required>
+      <label class="f5" for="telephoneOfParticipant_{{@index}}">Telephone:</label>
+      <input class="db center f5 pa2 ma2" type="number" name="telephoneOfParticipant_{{@index}}" value="">
+      <label class="f5" for="emailOfParticipant_{{@index}}">Email:</label>
+      <input class="db center f5 pa2 ma2" type="text" name="emailOfParticipant_{{@index}}" value="" required>
+      <label class="f5" for="locationOfParticipant_{{@index}}">Location:</label>
+      <input class="db center f5 pa2 ma2" type="text" name="locationOfParticipant_{{@index}}" value="" required>
 
       <fieldset class="bn">
         <legend>Ethnicity:</legend>
-        <select id="ethnicity" name="ethnicity">
+        <select id="ethnicity" name="ethnicity_{{@index}}">
     <option value="" selected="selected" disabled="disabled">-- select one --</option>
     <optgroup label="White">
       <option value="White English">English</option>
@@ -68,12 +71,10 @@
     </optgroup>
   </select>
       </fieldset>
+      <label class="f5" for="additionalInfo_{{@index}}">Additional Info:</label>
+      <input class="center db f5 pa2 ma2" type="text" name="additionalInfo_{{@index}}" value="">
       </section>
       {{/each}}
-
-
-      <label class="f5" for="name">Additional Info:</label>
-      <input class="center db f5 pa2 ma2" type="text" name="additionalInfo" value="">
 
       <button class="bg-black white f5 br1 pt1 pb1 pr3 pl3 mt2 bn" type="submit" name="submit">Sign Up</button>
     </form>
