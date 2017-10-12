@@ -5,7 +5,7 @@ const returnSingleEmail = (eventTitle, charityEmail, numberOfTickets) => {
   return {
     'From': 'steve@ticketsforgood.co.uk',
     'To': `${charityEmail}`,
-    'Subject': `${participantsArr[0].nameOfCharity} Tickets for  ${participantsArr[0].eventTitle}`,
+    'Subject': `${eventTitle} Ticket Application Successful`,
     'TextBody': `
     Hi,
     You have successfully applied for ${numberOfTickets} tickets for ${eventTitle}.
