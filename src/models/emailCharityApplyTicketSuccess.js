@@ -36,7 +36,7 @@ const sendCharityApplyTicketSuccess = (participantsArr) => {
       return result
     }) // TODO: send email notification to admin, emails successfully sent
     .catch(err => {
-      console.err(err)
+      console.error(err)
       return err
     }) // TODO: send email notification to admin, error sending new email notification
 }
