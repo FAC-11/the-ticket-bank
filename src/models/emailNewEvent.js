@@ -35,14 +35,23 @@ const sendNewEventEmails = (eventObj) => {
   return getCharityEmails()
     .then(emailObjArr => {
       const emailList = returnListOfEmails(emailObjArr, eventObj)
-      emailClient.sendEmailBatch(emailList, (err, res) => {
-        if (err) {
-          console.error(err)
-          return err
-        }
-        return res
+      return new Promise((resolve, reject) => {
+        emailClient.sendEmailBatch(emailList, (err, res) => {
+          if (err) {
+            reject(err)
+          } else {
+            resolve(res)
+          }
+        })
       })
     })
+    .then(result => {
+      return result
+    }) // TODO: send email notification to admin, emails successfully sent
+    .catch(err => {
+      console.err(err)
+      return err
+    }) // TODO: send email notification to admin, error sending new email notification
 }
 
 module.exports = {

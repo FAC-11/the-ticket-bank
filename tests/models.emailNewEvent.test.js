@@ -28,3 +28,18 @@ tape('test returnListOfEmails function', t => {
       t.end()
     })
 })
+
+tape('test sendNewEventEmail', t => {
+  resetTestDb()
+    .then(() => {
+      return sendNewEventEmails(eventObj)
+    })
+    .then(result => {
+      t.equal(result.length, 5, '5 emails should have been sent')
+      t.end()
+    })
+    .catch(err => {
+      t.error(err)
+      t.end()
+    })
+})

@@ -1,7 +1,7 @@
 const createEvent = require('../handlers/createevent')
 const validateEvent = require('../models/validateEvent.js')
 const getSingleEvent = require('../database/sql-queries/getSingleEvent')
-const emailNewEvent = require('../models/emailNewEvent')
+const { sendNewEventEmails } = require('../models/emailNewEvent')
 
 module.exports = (req, res) => {
   validateEvent(req)
@@ -14,14 +14,11 @@ module.exports = (req, res) => {
         return getSingleEvent({eventTitle: event.title})
       }
     })
-    .then(event => {
-      emailNewEvent(event)
-    })
     .catch((err) => {
       console.error(err)
       if (err.code) {
         res.render('addevent', {
-          err: 'Sorry there was a problem adding the event.',
+          err: `Sorry there was a problem adding the event or sending the emails.`,
           input: req.body
         })
       } else {
@@ -30,5 +27,8 @@ module.exports = (req, res) => {
           input: req.body
         })
       }
+    })
+    .then(event => {
+      sendNewEventEmails(event)
     })
 }
