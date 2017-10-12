@@ -30,28 +30,3 @@ const extractTicketParticipants = (req) => {
 }
 
 module.exports = extractTicketParticipants
-
-// var req = {
-//   body: {
-//     numberoftickets: '3',
-//     namesOfParticipant_0: '6',
-//     ageOfParticipant_0: '6',
-//     telephoneOfParticipant_0: '6',
-//     emailOfParticipant_0: '6',
-//     locationOfParticipant_0: '6',
-//     additionalInfo_0: '6',
-//     namesOfParticipant_1: '1',
-//     ageOfParticipant_1: '1',
-//     telephoneOfParticipant_1: '1',
-//     emailOfParticipant_1: '1',
-//     locationOfParticipant_1: '1',
-//     additionalInfo_1: '1',
-//     namesOfParticipant_2: '2',
-//     ageOfParticipant_2: '2',
-//     telephoneOfParticipant_2: '2',
-//     emailOfParticipant_2: '2',
-//     locationOfParticipant_2: '2',
-//     additionalInfo_2: '2',
-//     submit: ''
-//   }
-// }
