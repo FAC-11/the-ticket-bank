@@ -1,8 +1,11 @@
 const applyTicket = require('../handlers/applyTicket')
 const validateTicketForm = require('../models/validateTicketForm.js')
+const extractTicketParticipants = require('../models/extractTicketParticipants')
 
 module.exports = (req, res) => {
-  console.log(req.body);
+
+  extractTicketParticipants(req)
+  
   // validateTicketForm(req)
   // .then(()=> {
   //   for (req.body.numberoftickets)
