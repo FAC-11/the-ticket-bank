@@ -3,7 +3,7 @@
   <section class="tc w-80 center">
     <form class="bg-tb dib pa4 pt1 mt4 mb4" action="/addevent" method="post">
       <h1>Create Event</h1>
-      <label class='f4'for="title">Title</label>
+      <label class='f4' for="title">Title</label>
       <input class='w-100 db f5 pa2 ma2' type="text" name="title" value="{{input.title}}" required>
       <label class='f4' for="shortdesc">Short description</label>
       <input class='w-100 db f5 pa2 ma2' type="text" name="shortdesc" value="{{input.shortdesc}}">
@@ -14,11 +14,11 @@
       <label class='f4' for="location">Location</label>
       <input class='w-100 db f5 pa2 ma2' type="text" name="location" value="{{input.location}}">
       <label class='f4' for="startdate">Start date/time</label>
-      <input class='w-100 db f5 pa2 ma2' type="text" name="startdatetime" value="{{input.startdatetime}}" id="startdatetime" readonly="readonly">
       <img src="images2/cal.gif" onclick="javascript:NewCssCal ('startdatetime','ddMMyyyy','arrow',true,'12','','future')" style="cursor:pointer" />
+      <input class='w-100 db f5 pa2 ma2' type="text" name="startdatetime" value="{{input.startdatetime}}" id="startdatetime" readonly="readonly">
       <label class='f4' for="enddatetime">End date/time</label>
-      <input class='w-100 db f5 pa2 ma2' type="text" name="enddatetime" value="{{input.enddatetime}}" id="enddatetime" readonly="readonly">
       <img src="images2/cal.gif" onclick="javascript:NewCssCal ('enddatetime','ddMMyyyy','arrow',true,'12','','future')" style="cursor:pointer" />
+      <input class='w-100 db f5 pa2 ma2' type="text" name="enddatetime" value="{{input.enddatetime}}" id="enddatetime" readonly="readonly">
       <label class='f4' for="minage">Minimum age</label>
       <input class='w-100 db f5 pa2 ma2' type="text" name="minage" value="{{input.minage}}">
       <label class='f4' for="ticketsavailable">Number of tickets/ tickets available</label>
