@@ -14,6 +14,7 @@ const createevent = require('./createevent')
 const verifycharityemail = require('./verifyCharityEmail')
 const applyForTickets = require('./applyForTickets')
 const applyTicketsSubmit = require('./applyTicketsSubmit')
+const checkCookie = require('./checkCookie')
 const logout = require('./logout')
 
 router.get('/', home)
@@ -24,13 +25,16 @@ router.get('/sign-up', newcharitysignup)
 router.post('/newuser', newcharitysubmit)
 router.get('/approvecharitysignup/:userinfo', approvecharitysignup)
 router.get('/rejectcharitysignup/:userinfo', rejectcharitysignup) // should userinfo be named randomstring?
-router.get('/addevent', addevent)
-router.post('/addevent', createevent)
 router.post('/event/:eventTitle/tickets', applyTicketsSubmit)
 router.get('/rejectcharitysignup/:userinfo', rejectcharitysignup)
 router.get('/verifycharityemail/:userinfo', verifycharityemail)
-router.post('/event/:eventTitle/applyfortickets', applyForTickets)
 router.get('/logout', logout)
+
+// authenticated routes
+router.get('/addevent', checkCookie, addevent)
+router.post('/addevent', checkCookie, createevent)
+router.post('/event/:eventTitle/applyfortickets', checkCookie, applyForTickets)
+
 router.use(error.client)
 router.use(error.server)
 
