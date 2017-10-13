@@ -29,14 +29,13 @@ router.post('/event/:eventTitle/tickets', applyTicketsSubmit)
 router.get('/rejectcharitysignup/:userinfo', rejectcharitysignup)
 router.get('/verifycharityemail/:userinfo', verifycharityemail)
 router.get('/logout', logout)
-router.use(error.client)
-router.use(error.server)
 
 // authenticated routes
-router.use(checkCookie)
-router.get('/addevent', addevent)
-router.post('/addevent', createevent)
-router.post('/event/:eventTitle/applyfortickets', applyForTickets)
+router.get('/addevent', checkCookie, addevent)
+router.post('/addevent', checkCookie, createevent)
+router.post('/event/:eventTitle/applyfortickets', checkCookie, applyForTickets)
 
+router.use(error.client)
+router.use(error.server)
 
 module.exports = router
