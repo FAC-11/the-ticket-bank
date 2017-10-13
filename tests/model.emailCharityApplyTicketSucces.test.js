@@ -3,7 +3,7 @@ const tape = require('tape')
 const resetTestDb = require('../src/database/resetTestDb')
 
 const participantsArr = [ {
-  nameOfCharity: 'founders',
+  charityName: 'founders',
   eventTitle: 'event title oh',
   namesOfParticipant: 'nick',
   ageOfParticipant: '33',
@@ -13,7 +13,7 @@ const participantsArr = [ {
   ethnicity: 'White English',
   additionalInfo: 'allergic to nuts'
 }, {
-  nameOfCharity: 'founders',
+  charityName: 'founders',
   eventTitle: 'event title oh',
   namesOfParticipant: 're',
   ageOfParticipant: '33',
