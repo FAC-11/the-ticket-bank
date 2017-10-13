@@ -14,6 +14,10 @@
         <li class="pv2 pl2"><a class="link white" href="/sign-up">REGISTER AS A CHARITY</a></li>
         {{/unless}}
 
+        {{#if session.userId}}
+        <li class="pv2 pl2"><a class="link white" href="/logout">LOGOUT</a></li>
+        {{/if}}
+
         {{#if session.isAdmin}}
         <li class="pv2 pl2"><a class="link white" href="/addevent">CREATE EVENT</a></li>
         {{/if}}
