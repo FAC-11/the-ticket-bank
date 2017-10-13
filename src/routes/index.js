@@ -25,7 +25,7 @@ router.get('/sign-up', newcharitysignup)
 router.post('/newuser', newcharitysubmit)
 router.get('/approvecharitysignup/:userinfo', approvecharitysignup)
 router.get('/rejectcharitysignup/:userinfo', rejectcharitysignup) // should userinfo be named randomstring?
-router.post('/event/:eventTitle/tickets', applyTicketsSubmit)
+
 router.get('/rejectcharitysignup/:userinfo', rejectcharitysignup)
 router.get('/verifycharityemail/:userinfo', verifycharityemail)
 router.get('/logout', logout)
@@ -34,6 +34,7 @@ router.get('/logout', logout)
 router.get('/addevent', checkCookie, addevent)
 router.post('/addevent', checkCookie, createevent)
 router.post('/event/:eventTitle/applyfortickets', checkCookie, applyForTickets)
+router.post('/event/:eventTitle/tickets', checkCookie, applyTicketsSubmit)
 
 router.use(error.client)
 router.use(error.server)
