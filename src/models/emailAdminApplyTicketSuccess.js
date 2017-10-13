@@ -6,14 +6,15 @@ const returnSingleEmail = (adminEmail, charityEmail, participantsArr) => {
   return {
     'From': 'steve@ticketsforgood.co.uk',
     'To': `${adminEmail}`,
-    'Subject': `${participantsArr[0].nameOfCharity} Tickets for  ${participantsArr[0].eventTitle}`,
+    'Subject': `${participantsArr[0].charityName} Tickets for  ${participantsArr[0].eventTitle}`,
     'TextBody': `
     Hi,
-     ${participantsArr[0].nameOfCharity} have succesfully applied for tickets for ${participantsArr.length} for ${participantsArr[0].eventTitle}.
 
-     Please get in touch with them at ${charityEmail} to provide them with tickets and any extra information necessary.
+    ${participantsArr[0].charityName} have succesfully applied for tickets for ${participantsArr.length} for ${participantsArr[0].eventTitle}.
 
-     Have a good day!`
+    Please get in touch with them at ${charityEmail} to provide them with tickets and any extra information necessary.
+
+    Have a good day!`
   }
 }
 
@@ -23,7 +24,7 @@ const emailAdminApplyTicketSuccess = (participantsArr) => {
   return fetchAdminEmail()
     .then(emailObjArr => {
       adminEmail = emailObjArr[0].email
-      return fetchEmailFromCharityName(participantsArr[0].nameOfCharity)
+      return fetchEmailFromCharityName(participantsArr[0].charityName)
     })
     .then(emailObjArr => {
       charityEmail = emailObjArr[0].email

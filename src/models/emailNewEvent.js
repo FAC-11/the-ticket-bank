@@ -1,8 +1,9 @@
 const { emailClient } = require('../models/email.js')
 const getCharityEmails = require('../database/sql-queries/getCharityEmails')
 
-const returnSingleEmail = (emailObj, eventObj) => {
-  const {title, short_desc, venue, location, event_date} = eventObj
+const returnSingleEmail = (emailObj, eventObjArr) => {
+  console.log('event obj', eventObjArr)
+  const {title, short_desc, venue, location, event_date} = eventObjArr[0]
   const { email } = emailObj
   return {
     'From': 'steve@ticketsforgood.co.uk',
@@ -25,16 +26,16 @@ const returnSingleEmail = (emailObj, eventObj) => {
   }
 }
 
-const returnListOfEmails = (arr, eventObj) => {
+const returnListOfEmails = (arr, eventObjArr) => {
   return arr.map(emailObj => {
-    return returnSingleEmail(emailObj, eventObj)
+    return returnSingleEmail(emailObj, eventObjArr)
   })
 }
 
-const sendNewEventEmails = (eventObj) => {
+const sendNewEventEmails = (eventObjArr) => {
   return getCharityEmails()
     .then(emailObjArr => {
-      const emailList = returnListOfEmails(emailObjArr, eventObj)
+      const emailList = returnListOfEmails(emailObjArr, eventObjArr)
       return new Promise((resolve, reject) => {
         emailClient.sendEmailBatch(emailList, (err, res) => {
           if (err) {

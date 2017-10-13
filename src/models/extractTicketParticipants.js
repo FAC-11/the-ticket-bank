@@ -1,7 +1,7 @@
 const extractTicketParticipants = (req) => {
   const charityName = req.session.charityName
   const numTickets = req.body.numberoftickets
-
+  const eventTitle = req.params.eventTitle
   delete req.body['numberoftickets']
   delete req.body['submit']
   delete req.body['charityName']
@@ -24,8 +24,8 @@ const extractTicketParticipants = (req) => {
   // add charityName key to each participant object
   for (var k = 0; k < numTickets; k++) {
     participantsArray[k]['charityName'] = charityName
+    participantsArray[k]['eventTitle'] = eventTitle
   }
-  console.log('participantsArray: ', participantsArray)
   return participantsArray
 }
 
